@@ -32,7 +32,7 @@ const ContactRelationshipTypeSchema = z.enum([
 ]);
 
 const IncomingEmailCategorySchema = z.enum([
-	"sales_new_venue_enquiry",
+	"sales_new_enquiry",
 	"support",
 	"partnership",
 	"supplier_printer_collaboration",
@@ -44,9 +44,9 @@ const IncomingEmailCategorySchema = z.enum([
 const ContactMemorySchema = z.object({
 	senderEmail: z.string().email(),
 	senderName: z.string().nullable(),
-	venueOrCompanyName: z.string().nullable(),
-	venueType: z.string().nullable(),
-	numberOfVenues: z.number().int().positive().nullable(),
+	propertyOrCompanyName: z.string().nullable(),
+	propertyType: z.string().nullable(),
+	estimatedArea: z.number().int().positive().nullable(),
 	relationshipType: ContactRelationshipTypeSchema,
 	interestsOrProblems: z.array(z.string()).max(6),
 	lastThreadSummary: z.string().nullable(),
@@ -213,25 +213,13 @@ const DEFAULT_STATE: MailboxAgentState = {
 };
 
 const SALES_KEYWORDS = [
-	"demo",
-	"venue",
 	"garden",
-	"pub",
-	"bar",
-	"cafe",
-	"caf\u00e9",
-	"hospitality",
+
 	"locations",
 	"sites",
-	"opening",
-	"new venue",
+
 	
-	"food truck",
-	"taco truck",
-	"truck",
-	"stall",
-	"trailer",
-	"van",
+
 	"garden",
 	"gardening",
 	"groundwork",
@@ -528,9 +516,9 @@ function buildContactMemoryContext(memory: ContactMemory): string {
 	const items = [
 		`Sender email: ${memory.senderEmail}`,
 		`Sender name: ${memory.senderName ?? "unknown"}`,
-		`Venue or company: ${memory.venueOrCompanyName ?? "unknown"}`,
-		`Venue type: ${memory.venueType ?? "unknown"}`,
-		`Number of venues: ${memory.numberOfVenues ?? "unknown"}`,
+		`Property or company: ${memory.propertyOrCompanyName ?? "unknown"}`,
+		`Property type: ${memory.propertyType ?? "unknown"}`,
+		`Estimated area (m²): ${memory.estimatedArea ?? "unknown"}`,
 		`Relationship type: ${memory.relationshipType}`,
 		`Interests or problems: ${memory.interestsOrProblems.length > 0 ? memory.interestsOrProblems.join("; ") : "none captured"}`,
 		`Last thread summary: ${memory.lastThreadSummary ?? "none"}`,
@@ -627,7 +615,7 @@ export function classifyIncomingEmail(params: {
 		"food truck",
 		"taco truck",
 		"sell tacos",
-		"venue",
+		"property",
 		"garden",
 		"groundwork",
 		"groundworks",
@@ -638,7 +626,7 @@ export function classifyIncomingEmail(params: {
 
 	if (strongSalesSignals.length > 0) {
 		return {
-			category: "sales_new_venue_enquiry",
+			category: "sales_new_enquiry",
 			confidence: strongSalesSignals.length >= 2 ? "high" : "medium",
 			reasons: strongSalesSignals.slice(0, 3),
 		};
@@ -661,7 +649,7 @@ export function classifyIncomingEmail(params: {
 		{ category: "support", matches: includesAny(haystack, SUPPORT_KEYWORDS) },
 		{ category: "partnership", matches: includesAny(haystack, PARTNERSHIP_KEYWORDS) },
 		{ category: "supplier_printer_collaboration", matches: includesAny(haystack, SUPPLIER_KEYWORDS) },
-		{ category: "sales_new_venue_enquiry", matches: includesAny(haystack, SALES_KEYWORDS) },
+		{ category: "sales_new_enquiry", matches: includesAny(haystack, SALES_KEYWORDS) },
 	];
 
 	const topMatch = scoredCategories
@@ -698,21 +686,21 @@ function extractSenderNameFromText(bodyText: string): string | null {
 	return null;
 }
 
-function extractVenueType(bodyText: string): string | null {
+function extractPropertyType(bodyText: string): string | null {
 	const haystack = bodyText.toLowerCase();
-	const venueTypes = ["pub", "garden", "bar", "cafe", "caf\u00e9", "hotel", "coffee shop"];
+	const propertyTypes = ["residential", "commercial", "garden", "driveway", "fencing", "groundwork", "patio"];
 
-	for (const venueType of venueTypes) {
-		if (haystack.includes(venueType)) {
-			return venueType === "caf\u00e9" ? "cafe" : venueType;
+	for (const propertyType of propertyTypes) {
+		if (haystack.includes(propertyType)) {
+			return propertyType;
 		}
 	}
 
 	return null;
 }
 
-function extractNumberOfVenues(bodyText: string): number | null {
-	const match = bodyText.match(/\b(\d{1,3})\s+(gardens|driveways|patios|fences|trees|sites|properties)\b/i);
+function extractEstimatedArea(bodyText: string): number | null {
+	const match = bodyText.match(/\b(\d{1,5})\s*(sqm|sq m|m2|m²|square metres|square meters|meters|metres|sq ft)\b/i);
 	if (!match) {
 		return null;
 	}
@@ -730,7 +718,7 @@ function cleanEntityCandidate(candidate: string): string | null {
 	return trimmed;
 }
 
-function extractVenueOrCompanyName(bodyText: string, senderEmail: string): string | null {
+function extractPropertyOrCompanyName(bodyText: string, senderEmail: string): string | null {
 	const patterns = [
 		/\b(?:our property|our garden|our house|my property|my garden|my house)\s+(?:is|called|named)\s+([A-Z][A-Za-z0-9 '&-]{1,60})/i,
 		/\b(?:I run|I own|I manage|we run|we own|we manage)\s+([A-Z][A-Za-z0-9 '&-]{1,60})/i,
@@ -778,7 +766,7 @@ function buildNextFollowUpItem(params: {
 	memory: ContactMemory;
 }): string | null {
 	switch (params.classification.category) {
-		case "sales_new_venue_enquiry":
+		case "sales_new_enquiry":
 			return "Await the work scope, site details, and any quote or availability questions.";
 		case "support":
 			return "Await the specific issue details or examples if the problem is still unclear.";
@@ -803,7 +791,7 @@ function inferRelationshipType(params: {
 	}
 
 	switch (params.classification.category) {
-		case "sales_new_venue_enquiry":
+		case "sales_new_enquiry":
 			return "prospect";
 		case "partnership":
 			return "partner";
@@ -830,9 +818,9 @@ export function getOrCreateContactMemory(
 	return {
 		senderEmail,
 		senderName: senderName ?? null,
-		venueOrCompanyName: null,
-		venueType: null,
-		numberOfVenues: null,
+		propertyOrCompanyName: null,
+		propertyType: null,
+		estimatedArea: null,
 		relationshipType: "unknown",
 		interestsOrProblems: [],
 		lastThreadSummary: null,
@@ -849,9 +837,9 @@ export function updateContactMemory(params: {
 	senderName?: string | null;
 }): ContactMemory {
 	const inferredSenderName = params.senderName ?? extractSenderNameFromText(params.bodyText);
-	const venueOrCompanyName = extractVenueOrCompanyName(params.bodyText, params.existing.senderEmail);
-	const venueType = extractVenueType(params.bodyText);
-	const numberOfVenues = extractNumberOfVenues(params.bodyText);
+	const propertyOrCompanyName = extractPropertyOrCompanyName(params.bodyText, params.existing.senderEmail);
+	const propertyType = extractPropertyType(params.bodyText);
+	const estimatedArea = extractEstimatedArea(params.bodyText);
 	const interestsOrProblems = Array.from(new Set([
 		...extractInterestsOrProblems(params.bodyText),
 		...params.existing.interestsOrProblems,
@@ -860,9 +848,9 @@ export function updateContactMemory(params: {
 	const updated: ContactMemory = {
 		...params.existing,
 		senderName: inferredSenderName ?? params.existing.senderName,
-		venueOrCompanyName: venueOrCompanyName ?? params.existing.venueOrCompanyName,
-		venueType: venueType ?? params.existing.venueType,
-		numberOfVenues: numberOfVenues ?? params.existing.numberOfVenues,
+		propertyOrCompanyName: propertyOrCompanyName ?? params.existing.propertyOrCompanyName,
+		propertyType: propertyType ?? params.existing.propertyType,
+		estimatedArea: estimatedArea ?? params.existing.estimatedArea,
 		relationshipType: inferRelationshipType({
 			existing: params.existing.relationshipType,
 			classification: params.classification,
@@ -1317,11 +1305,11 @@ function buildAgentFallbackReply(params: {
 		return "Thanks for your email. I’m sorry you’ve run into a problem. If you can send a little more detail about what’s happening, including any error message or the step you were trying to complete, I’ll do my best to help.";
 	}
 
-	if (params.classification.category === "sales_new_venue_enquiry") {
-		const venueReference = params.contactMemory.venueOrCompanyName
-			? ` for ${params.contactMemory.venueOrCompanyName}`
+	if (params.classification.category === "sales_new_enquiry") {
+		const propertyReference = params.contactMemory.propertyOrCompanyName
+			? ` for ${params.contactMemory.propertyOrCompanyName}`
 			: "";
-		return `Thanks for getting in touch${venueReference}. If you send me a bit more about the job, I can help point you in the right direction and work out the next step without guessing.`;
+		return `Thanks for getting in touch${propertyReference}. If you send me a bit more about the job, I can help point you in the right direction and work out the next step without guessing.`;
 	}
 
 	if (/\bpricing\b|\bprice\b|\bcost\b/i.test(params.latestEmailText)) {
