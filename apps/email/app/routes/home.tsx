@@ -42,6 +42,7 @@ export default function HomeRoute() {
 
 	const domains = configData?.domains ?? [];
 	const emailAddresses = configData?.emailAddresses ?? [];
+	const configuredMailboxEmails = configData?.configuredMailboxEmails ?? [];
 
 	const [isCreateOpen, setIsCreateOpen] = useState(false);
 	const [newPrefix, setNewPrefix] = useState("");
@@ -67,11 +68,16 @@ export default function HomeRoute() {
 	const autoCreateDone = useRef(false);
 	useEffect(() => {
 		if (autoCreateDone.current) return;
-		if (emailAddresses.length === 0 || !mailboxesFetched) return;
+		if (!mailboxesFetched) return;
+		const desiredMailboxes = Array.from(new Set([
+			...emailAddresses,
+			...configuredMailboxEmails,
+		]));
+		if (desiredMailboxes.length === 0) return;
 		const existingEmails = new Set(
 			mailboxes.map((m) => m.email.toLowerCase()),
 		);
-		const toCreate = emailAddresses.filter(
+		const toCreate = desiredMailboxes.filter(
 			(addr) => !existingEmails.has(addr.toLowerCase()),
 		);
 		if (toCreate.length === 0) {
@@ -87,7 +93,7 @@ export default function HomeRoute() {
 			}),
 		).then(() => { if (!cancelled) refetchMailboxes(); });
 		return () => { cancelled = true; };
-	}, [emailAddresses, mailboxes, refetchMailboxes]);
+	}, [configuredMailboxEmails, emailAddresses, mailboxes, mailboxesFetched, refetchMailboxes]);
 
 	const handleCreate = async (e: FormEvent) => {
 		e.preventDefault();
