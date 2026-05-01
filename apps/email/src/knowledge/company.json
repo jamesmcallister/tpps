@@ -1,52 +1,48 @@
 {
   "whoCompanyIsFor": [
-    "Restaurants",
-    "Pubs",
-    "Bars",
-    "Cafes",
-    "Other hospitality venues that need simpler menu updates"
+    "Residential homeowners",
+    "Commercial properties",
+    "People needing garden design or maintenance",
+    "People needing groundworks, driveways, or patios"
   ],
   "confirmedCurrentCapabilities": [
-    "Digital menu management for hospitality venues",
-    "Venue-based admin access",
-    "Menu imports from uploaded files and images",
-    "AI-assisted menu extraction as part of the import flow",
-    "Menu editing and publishing workflows",
-    "Support for multiple menus within a venue"
+    "Patios & Pathways (Porcelain, Natural Stone, Block Paving, Gravel)",
+    "Driveway Installation (Block Paving, Tarmac, Resin-Bound, Gravel)",
+    "Fencing (Panels, Post & Rail, Privacy)",
+    "Garden Design & Planning (Consultations, 3D Concepts)",
+    "Groundworks (Excavation, Levelling, Sub-base)",
+    "Tree Removal & Site Clearance",
+    "Garden Renovation & Maintenance"
   ],
   "inProgressCapabilities": [
-    "Some onboarding and operations are still handled in a practical admin-led way rather than being fully self-serve",
-    "Parts of the product are still being refined as the company develops its first production-ready workflows"
+    "Project timelines depend on site surveys and material availability."
   ],
   "currentOperatingModelNotes": [
-    "The company is currently focused on hospitality venues rather than general retail",
-    "The company takes a conservative MVP-first approach",
-    "The assistant should prefer accurate, present-tense product truth over broad sales claims"
+    "Provides free site surveys to confirm exact requirements.",
+    "Provides detailed written quotations within 2 working days after a survey.",
+    "Fully licensed & insured.",
+    "Local to Thanet with 10+ years' experience."
   ],
   "plannedOrExploratoryIdeas": [
-    "QR-related venue flows",
-    "Print-related venue materials",
-    "Supplier or local partner integrations",
-    "Venue engagement ideas such as Wi-Fi and related guest journeys"
+    "Larger commercial groundworks",
+    "Ongoing seasonal maintenance plans"
   ],
   "pricing": {
-    "status": "unknown",
+    "status": "estimates_available",
     "notes": [
-      "The assistant must not invent or estimate pricing.",
-      "Pricing questions should be escalated to a human unless explicit approved pricing is added here."
+      "Prices are rough estimates and vary based on accessibility, materials, and ground prep.",
+      "All quotes include professional site survey, written estimate, site prep, waste removal, and 20% VAT.",
+      "Typical residential projects range £2,000–£8,000."
     ]
   },
   "rules": {
     "mustNotClaim": [
-      "Invented features",
-      "Invented pricing",
-      "Invented implementation timelines",
-      "Unconfirmed integrations",
-      "Planned or exploratory ideas as if they are already live"
+      "Fixed prices before a site survey",
+      "Guaranteed start dates before quote approval",
+      "Services outside of landscaping and groundworks without checking"
     ],
     "internalOnlyNotes": [
-      "Do not expose internal-only operating assumptions",
-      "Do not present admin-led or in-progress internal processes as polished public features"
+      "Labour is typically 60-70% of the quote."
     ]
   }
 }

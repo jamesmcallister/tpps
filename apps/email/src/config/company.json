@@ -1,38 +1,21 @@
 {
-  "company": {
-    "name": "Menii",
-    "shortDescription": "Menii is a digital menu platform for hospitality venues.",
-    "longDescription": "Menii helps hospitality venues manage and publish digital menus with a practical, operations-first approach.",
-    "ukEnglish": true
-  },
   "mailboxes": {
-    "albert@menii.co.uk": {
-      "name": "Albert",
-      "emailAddress": "albert@menii.co.uk",
-      "role": "General Menii email assistant",
-      "knowledgeId": "company",
-      "tone": "friendly, welcoming, calm, and useful",
-      "customerReplyMode": "send",
-      "escalationMode": "guarded",
-      "humanEscalationEmail": "team@menii.co.uk",
-      "humanEscalationDisplayName": "Menii team"
-    },
-    "stacey@menii.co.uk": {
-      "name": "Stacey Pryor",
-      "emailAddress": "stacey@menii.co.uk",
-      "role": "Email assistant for TPPS",
+    "hello@tppslandscapes.co.uk": {
+      "name": "TPPS Landscapes",
+      "emailAddress": "hello@tppslandscapes.co.uk",
+      "role": "Customer Enquiries",
       "company": {
-        "name": "TPPS",
-        "shortDescription": "TPPS handles gardening and groundwork enquiries.",
-        "longDescription": "TPPS is a local gardening and groundwork business taking practical enquiries by email and helping people understand the work, next steps, and whether a human follow-up is needed.",
+        "name": "TPPS Landscapes",
+        "shortDescription": "TPPS Landscapes handles gardening and groundwork enquiries.",
+        "longDescription": "TPPS is a premium landscaping and groundwork company serving Thanet and East Kent. We take practical enquiries by email, provide rough estimates based on m² or linear meters, and arrange free site surveys for final written quotes.",
         "ukEnglish": true
       },
-      "knowledgeId": "stacey",
+      "knowledgeId": "hello",
       "tone": "professional, friendly, clear, practical, and helpful",
-      "customerReplyMode": "send",
+      "customerReplyMode": "draft_only",
       "escalationMode": "always_reply",
-      "humanEscalationEmail": "team@menii.co.uk",
-      "humanEscalationDisplayName": "TPPS team"
+      "humanEscalationEmail": "tim@tppslandscapes.co.uk",
+      "humanEscalationDisplayName": "Tim Pryor"
     }
   }
 }

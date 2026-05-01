@@ -1,57 +1,49 @@
 {
   "company": {
-    "name": "Menii",
-    "email_assistant_name": "Albert",
-    "description_short": "Menii is a digital menu and venue platform for hospitality businesses.",
-    "description_long": "Menii helps venues manage menus, update content more easily, and present cleaner guest-facing digital menus."
+    "name": "TPPS Landscapes Ltd",
+    "email_assistant_name": "Assistant",
+    "description_short": "TPPS Landscapes Ltd is a premium landscaping and groundwork company serving Thanet and East Kent.",
+    "description_long": "TPPS Landscapes handles gardening and groundwork enquiries, providing patios, driveways, fencing, design, groundworks, tree removal, and garden maintenance. Based in Thanet with 10+ years' experience."
   },
   "positioning": {
     "core_problem": [
-      "Menus are annoying to keep updated",
-      "PDFs and printed menus go out of date quickly",
-      "Small changes like prices or specials should be easy to publish"
+      "Customers need reliable, clear pricing and reliable landscapers in East Kent.",
+      "Gardens and driveways need professional, insured groundwork."
     ],
     "core_value": [
-      "faster menu updates",
-      "less admin friction",
-      "cleaner guest experience",
-      "better ongoing control for venues"
+      "free site surveys",
+      "detailed written quotes within 2 working days",
+      "quality materials and finish guaranteed",
+      "fully licensed and insured"
     ]
   },
   "current_state": {
-    "mvp": true,
+    "operational": true,
     "notes": [
-      "Menii is focused on hospitality venues.",
-      "Menii is being built with a practical MVP-first approach.",
-      "Internal admin-led onboarding is part of the current operating model."
+      "TPPS Landscapes is a fast-growing premium landscaping company.",
+      "Serves Thanet and East Kent primarily."
     ]
   },
   "features_live_or_current_focus": [
-    "digital menu management",
-    "venue-based admin access",
-    "menu imports from menu files/images with AI-assisted extraction",
-    "menu editing and publishing workflow",
-    "multi-menu support for venues"
+    "Patios & Pathways (Porcelain, Indian Sandstone, Block Paving)",
+    "Driveway Installation (Resin-Bound, Tarmac, Block Paving, Gravel)",
+    "Fencing (Closeboard, Ranch-Style, Privacy)",
+    "Groundworks (Levelling, Site Clearance, Prep)",
+    "Garden Design Packages"
   ],
   "roadmap_or_exploration": [
-    "QR code flows for venues and tables",
-    "print-related venue materials",
-    "supplier and local partner integrations",
-    "wifi QR and venue engagement ideas"
+    "Complex multi-trade full garden overhauls."
   ],
   "audiences": [
-    "restaurants",
-    "cafes",
-    "pubs",
-    "bars",
-    "other hospitality venues"
+    "homeowners",
+    "property developers",
+    "commercial sites"
   ],
   "rules": {
     "do_not_claim": [
-      "unconfirmed integrations",
-      "guaranteed launch dates",
-      "custom pricing unless explicitly provided",
-      "roadmap items as already live"
+      "guaranteed prices without a site survey",
+      "work outside of Kent",
+      "immediate start dates"
     ]
   }
 }

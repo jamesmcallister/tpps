@@ -4,7 +4,7 @@ import { createWorkersAI } from "workers-ai-provider";
 import { z } from "zod";
 import companyConfigJson from "./config/company.json";
 import companyKnowledgeJson from "./knowledge/company.json";
-import staceyKnowledgeJson from "./knowledge/stacey.json";
+import helloKnowledgeJson from "./knowledge/hello.json";
 import { renderInteractivePrompt } from "./prompts/interactive";
 import { renderReplyPrompt } from "./prompts/reply";
 import { renderSystemPrompt } from "./prompts/system";
@@ -128,7 +128,7 @@ const CompanySchema = z.object({
 	ukEnglish: z.boolean(),
 });
 
-const KnowledgeIdSchema = z.enum(["company", "stacey"]);
+const KnowledgeIdSchema = z.enum(["company", "hello"]);
 const EscalationModeSchema = z.enum(["guarded", "always_reply"]);
 
 const AgentProfileSchema = z.object({
@@ -150,11 +150,11 @@ const CompanyConfigSchema = z.object({
 });
 
 const DEFAULT_COMPANY_KNOWLEDGE = CompanyKnowledgeSchema.parse(companyKnowledgeJson);
-const STACEY_KNOWLEDGE = CompanyKnowledgeSchema.parse(staceyKnowledgeJson);
+const HELLO_KNOWLEDGE = CompanyKnowledgeSchema.parse(helloKnowledgeJson);
 const COMPANY_CONFIG = CompanyConfigSchema.parse(companyConfigJson);
 const KNOWLEDGE_BY_ID = {
 	company: DEFAULT_COMPANY_KNOWLEDGE,
-	stacey: STACEY_KNOWLEDGE,
+	hello: HELLO_KNOWLEDGE,
 } satisfies Record<z.infer<typeof KnowledgeIdSchema>, CompanyKnowledge>;
 
 const DEFAULT_REPLY_MODEL = "@cf/meta/llama-4-scout-17b-16e-instruct";
@@ -215,7 +215,7 @@ const DEFAULT_STATE: MailboxAgentState = {
 const SALES_KEYWORDS = [
 	"demo",
 	"venue",
-	"restaurant",
+	"garden",
 	"pub",
 	"bar",
 	"cafe",
@@ -225,7 +225,7 @@ const SALES_KEYWORDS = [
 	"sites",
 	"opening",
 	"new venue",
-	"menu platform",
+	
 	"food truck",
 	"taco truck",
 	"truck",
@@ -277,7 +277,7 @@ const SUPPLIER_KEYWORDS = [
 	"printing",
 	"print",
 	"manufacturer",
-	"menus",
+	"driveways",
 	"collaboration",
 ];
 
@@ -620,10 +620,10 @@ export function classifyIncomingEmail(params: {
 		`${params.subject}\n${params.bodyText}\n${params.senderEmail}`.toLowerCase(),
 	);
 	const strongSalesSignals = includesAny(haystack, [
-		"want a menu",
-		"need a menu",
-		"menu on",
-		"looking for a menu",
+		"want a driveway",
+		"need a patio",
+		"fence on",
+		"looking for a quote",
 		"food truck",
 		"taco truck",
 		"sell tacos",
@@ -700,7 +700,7 @@ function extractSenderNameFromText(bodyText: string): string | null {
 
 function extractVenueType(bodyText: string): string | null {
 	const haystack = bodyText.toLowerCase();
-	const venueTypes = ["pub", "restaurant", "bar", "cafe", "caf\u00e9", "hotel", "coffee shop"];
+	const venueTypes = ["pub", "garden", "bar", "cafe", "caf\u00e9", "hotel", "coffee shop"];
 
 	for (const venueType of venueTypes) {
 		if (haystack.includes(venueType)) {
@@ -712,7 +712,7 @@ function extractVenueType(bodyText: string): string | null {
 }
 
 function extractNumberOfVenues(bodyText: string): number | null {
-	const match = bodyText.match(/\b(\d{1,3})\s+(venues|sites|locations|restaurants|pubs|bars|cafes)\b/i);
+	const match = bodyText.match(/\b(\d{1,3})\s+(gardens|driveways|patios|fences|trees|sites|properties)\b/i);
 	if (!match) {
 		return null;
 	}
@@ -732,7 +732,7 @@ function cleanEntityCandidate(candidate: string): string | null {
 
 function extractVenueOrCompanyName(bodyText: string, senderEmail: string): string | null {
 	const patterns = [
-		/\b(?:our venue|our company|our restaurant|our pub|our bar|our cafe|my venue|my company|my restaurant|my pub|my bar|my cafe)\s+(?:is|called|named)\s+([A-Z][A-Za-z0-9 '&-]{1,60})/i,
+		/\b(?:our property|our garden|our house|my property|my garden|my house)\s+(?:is|called|named)\s+([A-Z][A-Za-z0-9 '&-]{1,60})/i,
 		/\b(?:I run|I own|I manage|we run|we own|we manage)\s+([A-Z][A-Za-z0-9 '&-]{1,60})/i,
 		/\bI'm from\s+([A-Z][A-Za-z0-9 '&-]{1,60})/i,
 	];
@@ -755,7 +755,7 @@ function extractInterestsOrProblems(bodyText: string): string[] {
 		.filter(Boolean);
 
 	const relevant = sentences.filter((sentence) =>
-		/(menu|menus|pricing|price|support|problem|issue|venue|venues|import|upload|partner|integration|print|printer|billing|invoice|admin|garden|gardening|groundwork|groundworks|landscaping|driveway|patio|fence|fencing|quote)/i.test(sentence),
+		/(garden|landscaping|patio|driveway|fence|fencing|groundwork|tree|site|quote|price|pricing|estimate)/i.test(sentence),
 	);
 
 	return relevant.slice(0, 3).map((sentence) => sentence.slice(0, 160));
