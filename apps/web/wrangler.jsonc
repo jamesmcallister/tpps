@@ -1,5 +1,5 @@
 {
   "name": "tpps-web",
   "pages_build_output_dir": "./dist",
-  "compatibility_date": "2024-05-01"
+  "compatibility_date": "2024-05-01",
 }
