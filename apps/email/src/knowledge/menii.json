@@ -1,0 +1,57 @@
+{
+  "company": {
+    "name": "Menii",
+    "email_assistant_name": "Albert",
+    "description_short": "Menii is a digital menu and venue platform for hospitality businesses.",
+    "description_long": "Menii helps venues manage menus, update content more easily, and present cleaner guest-facing digital menus."
+  },
+  "positioning": {
+    "core_problem": [
+      "Menus are annoying to keep updated",
+      "PDFs and printed menus go out of date quickly",
+      "Small changes like prices or specials should be easy to publish"
+    ],
+    "core_value": [
+      "faster menu updates",
+      "less admin friction",
+      "cleaner guest experience",
+      "better ongoing control for venues"
+    ]
+  },
+  "current_state": {
+    "mvp": true,
+    "notes": [
+      "Menii is focused on hospitality venues.",
+      "Menii is being built with a practical MVP-first approach.",
+      "Internal admin-led onboarding is part of the current operating model."
+    ]
+  },
+  "features_live_or_current_focus": [
+    "digital menu management",
+    "venue-based admin access",
+    "menu imports from menu files/images with AI-assisted extraction",
+    "menu editing and publishing workflow",
+    "multi-menu support for venues"
+  ],
+  "roadmap_or_exploration": [
+    "QR code flows for venues and tables",
+    "print-related venue materials",
+    "supplier and local partner integrations",
+    "wifi QR and venue engagement ideas"
+  ],
+  "audiences": [
+    "restaurants",
+    "cafes",
+    "pubs",
+    "bars",
+    "other hospitality venues"
+  ],
+  "rules": {
+    "do_not_claim": [
+      "unconfirmed integrations",
+      "guaranteed launch dates",
+      "custom pricing unless explicitly provided",
+      "roadmap items as already live"
+    ]
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "name": "tpps-monorepo",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm -r run dev",
+    "build": "pnpm -r run build",
+    "deploy": "pnpm -r run deploy"
+  }
+}
