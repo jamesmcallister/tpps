@@ -13,10 +13,19 @@
     "deploy:web": "pnpm --filter web run deploy",
     "dev:email": "pnpm --filter email run dev",
     "build:email": "pnpm --filter email run build",
-    "deploy:email": "pnpm --filter email run deploy"
+    "deploy:email": "pnpm --filter email run deploy",
+    "prepare": "husky"
   },
   "devDependencies": {
+    "husky": "^9.1.7",
+    "lint-staged": "^16.4.0",
     "oxfmt": "^0.47.0",
     "oxlint": "^1.62.0"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,mjs,cjs,md}": [
+      "oxlint --fix",
+      "oxfmt --write"
+    ]
   }
 }
