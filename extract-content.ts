@@ -1,5 +1,5 @@
-import fs from 'fs';
-import { company } from './packages/content/src/company';
+import fs from "fs";
+import { company } from "./packages/content/src/company";
 import {
   trustPoints,
   whyChoose,
@@ -9,9 +9,9 @@ import {
   hero,
   about,
   ctas,
-  ctaBanner
-} from './packages/content/src/copy';
-import { services } from './packages/content/src/services';
+  ctaBanner,
+} from "./packages/content/src/copy";
+import { services } from "./packages/content/src/services";
 
 const markdown = `
 # TPPS Landscapes - Content Review
@@ -63,7 +63,7 @@ ${areasWeCover.additionalText}
 
 ## 3. Trust Points (Badges/Bullets)
 
-${trustPoints.map(t => `- ${t}`).join("\n")}
+${trustPoints.map((t) => `- ${t}`).join("\n")}
 
 ## 4. Hero Sections
 
@@ -141,7 +141,7 @@ ${whyChoose.subtitle}
 
 **Points:**
 
-${whyChoose.points.map(p => `- ${p}`).join("\n")}
+${whyChoose.points.map((p) => `- ${p}`).join("\n")}
 
 *Featured Project:*
 
@@ -162,16 +162,38 @@ ${servicesCopy.additionalServicesLabel}
 
 ## 9. Individual Service Capabilities & Copy
 
-${services.map(s => {
-  const copy = serviceCardCopy[s.id] || { heading: s.name, short: s.description, full: 'N/A' };
-  const pNote = Array.isArray(s.pricing) ? s.pricing.map(p => "£" + p.min + "-£" + p.max + " " + p.unit + " (" + (p.notes || '') + ")").join(", ") : 'N/A';
-  return "### " + s.name + " (Live: " + s.live + ")\n\n" +
-"**Marketing Heading:** \n" + copy.heading + "\n\n" +
-"**Short Description:** \n" + copy.short + "\n\n" +
-"**Full Text:** \n" + copy.full + "\n\n" +
-"**Pricing Note:** \n" + pNote + "\n\n";
-}).join("\n")}
+${services
+  .map((s) => {
+    const copy = serviceCardCopy[s.id] || { heading: s.name, short: s.description, full: "N/A" };
+    const pNote = Array.isArray(s.pricing)
+      ? s.pricing
+          .map((p) => "£" + p.min + "-£" + p.max + " " + p.unit + " (" + (p.notes || "") + ")")
+          .join(", ")
+      : "N/A";
+    return (
+      "### " +
+      s.name +
+      " (Live: " +
+      s.live +
+      ")\n\n" +
+      "**Marketing Heading:** \n" +
+      copy.heading +
+      "\n\n" +
+      "**Short Description:** \n" +
+      copy.short +
+      "\n\n" +
+      "**Full Text:** \n" +
+      copy.full +
+      "\n\n" +
+      "**Pricing Note:** \n" +
+      pNote +
+      "\n\n"
+    );
+  })
+  .join("\n")}
 `;
 
 fs.writeFileSync("CONTENT_REVIEW.md", markdown);
-console.log("Successfully retrieved ALL marketing blocks and wrote CONTENT_REVIEW.md with newlines");
+console.log(
+  "Successfully retrieved ALL marketing blocks and wrote CONTENT_REVIEW.md with newlines",
+);

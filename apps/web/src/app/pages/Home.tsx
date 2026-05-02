@@ -365,9 +365,9 @@ export function Home() {
                 Recent landscaping work across Thanet
               </h2>
               <p className="text-lg text-stone-600 leading-relaxed mb-8">
-                A dedicated project gallery is planned for full case studies. For now, this
-                section gives the gallery navigation a real destination and keeps project-led
-                enquiries moving toward a quote conversation.
+                A dedicated project gallery is planned for full case studies. For now, this section
+                gives the gallery navigation a real destination and keeps project-led enquiries
+                moving toward a quote conversation.
               </p>
               <a
                 href="#contact"
