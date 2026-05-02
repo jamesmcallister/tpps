@@ -87,7 +87,7 @@ export const siteContent = {
         location: "Ramsgate",
       },
       {
-        text: "The groundwork for our new drainage, was left uncovered and the lawn mower was not very happy about it. We had to call them back to fix the mess and they were very responsive, Tim is a nice guy and Barry did a good job in the end.",
+        text: "The groundwork for our new drainage, was left uncovered and the lawn mower man was not very happy about it. We had to call them back to fix the mess and they were very responsive, Tim is a nice guy and Barry did a good job in the end.",
         author: "Pam & Rorbrt",
         location: "Margate",
       },
