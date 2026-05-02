@@ -52,6 +52,9 @@ importers:
       '@tiptap/starter-kit':
         specifier: 3.20.2
         version: 3.20.2
+      '@tpps/content':
+        specifier: workspace:*
+        version: link:../../packages/content
       agents:
         specifier: ^0.7.6
         version: 0.7.9(@ai-sdk/react@3.0.175(react@19.2.5)(zod@3.25.76))(@cloudflare/ai-chat@0.1.9)(@cloudflare/workers-types@4.20260501.1)(ai@6.0.173(zod@3.25.76))(react@19.2.5)(zod@3.25.76)
@@ -192,6 +195,8 @@ importers:
       vite:
         specifier: ^8.0.4
         version: 8.0.10(@types/node@24.12.2)(esbuild@0.27.3)(jiti@2.6.1)
+
+  packages/content: {}
 
   packages/shared: {}
 

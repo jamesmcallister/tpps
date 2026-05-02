@@ -2,9 +2,7 @@ import { AIChatAgent } from "@cloudflare/ai-chat";
 import { generateText, streamText } from "ai";
 import { createWorkersAI } from "workers-ai-provider";
 import { z } from "zod";
-import companyConfigJson from "./config/company.json";
-import companyKnowledgeJson from "./knowledge/company.json";
-import helloKnowledgeJson from "./knowledge/hello.json";
+import { agentConfig, companyKnowledge, helloKnowledge } from "@tpps/content";
 import { renderInteractivePrompt } from "./prompts/interactive";
 import { renderReplyPrompt } from "./prompts/reply";
 import { renderSystemPrompt } from "./prompts/system";
@@ -149,9 +147,9 @@ const CompanyConfigSchema = z.object({
 	mailboxes: z.record(z.string().email(), AgentProfileSchema),
 });
 
-const DEFAULT_COMPANY_KNOWLEDGE = CompanyKnowledgeSchema.parse(companyKnowledgeJson);
-const HELLO_KNOWLEDGE = CompanyKnowledgeSchema.parse(helloKnowledgeJson);
-const COMPANY_CONFIG = CompanyConfigSchema.parse(companyConfigJson);
+const DEFAULT_COMPANY_KNOWLEDGE = CompanyKnowledgeSchema.parse(companyKnowledge);
+const HELLO_KNOWLEDGE = CompanyKnowledgeSchema.parse(helloKnowledge);
+const COMPANY_CONFIG = CompanyConfigSchema.parse(agentConfig);
 const KNOWLEDGE_BY_ID = {
 	company: DEFAULT_COMPANY_KNOWLEDGE,
 	hello: HELLO_KNOWLEDGE,

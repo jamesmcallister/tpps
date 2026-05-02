@@ -6,7 +6,7 @@ import { type Context, Hono } from 'hono'
 import { cors } from 'hono/cors'
 import PostalMime from 'postal-mime'
 import { z } from 'zod'
-import companyConfigJson from '../src/config/company.json'
+import { companyConfig } from '@tpps/content'
 
 import type { Env } from './types'
 
@@ -154,7 +154,7 @@ app.get('/api/v1/config', (c) => {
     .map((d) => d.trim())
     .filter(Boolean)
   const emailAddresses = c.env.EMAIL_ADDRESSES ?? []
-  const configuredMailboxEmails = Object.keys((companyConfigJson as { mailboxes?: Record<string, unknown> }).mailboxes ?? {})
+  const configuredMailboxEmails = Object.keys(companyConfig.mailboxes)
   return c.json({ domains, emailAddresses, configuredMailboxEmails })
 })
 
