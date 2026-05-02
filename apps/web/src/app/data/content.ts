@@ -1,15 +1,16 @@
 export const siteContent = {
   hero: {
     title: "Thanet's Local Landscaping, Patio & Driveway Specialists",
-    subtitle: "TPPS Landscapes Ltd delivers high-quality landscaping, patios, driveways, fencing, groundworks, and garden transformations across Broadstairs, Ramsgate, Margate, and surrounding areas.",
+    subtitle:
+      "TPPS Landscapes Ltd delivers high-quality landscaping, patios, driveways, fencing, groundworks, and garden transformations across Broadstairs, Ramsgate, Margate, and surrounding areas.",
     ctaPrimary: "Get a Free Quote",
     ctaSecondary: "Call Us Today",
     trustPoints: [
       "Free quotations & site surveys",
       "Fully licensed & insured",
       "Local and reliable",
-      "Quality workmanship"
-    ]
+      "Quality workmanship",
+    ],
   },
 
   about: {
@@ -17,9 +18,9 @@ export const siteContent = {
     title: "An extension of your home — built for beauty, comfort, and practical value.",
     paragraphs: [
       "At TPPS, we believe your garden should be an extension of your home — a space that brings beauty, comfort, and practical value to your property. Whether you need a new patio, a driveway, fencing, groundwork, or a full garden transformation, we bring experience, attention to detail, and quality craftsmanship to every project.",
-      "We work closely with each client to understand their goals, offer honest advice, and deliver lasting results using quality materials and professional installation methods. From small improvements to complete outdoor transformations, our focus is always on reliability, finish, and customer satisfaction."
+      "We work closely with each client to understand their goals, offer honest advice, and deliver lasting results using quality materials and professional installation methods. From small improvements to complete outdoor transformations, our focus is always on reliability, finish, and customer satisfaction.",
     ],
-    linkText: "Explore our services"
+    linkText: "Explore our services",
   },
 
   services: {
@@ -28,37 +29,43 @@ export const siteContent = {
     items: [
       {
         title: "Garden Design & Planning",
-        description: "Bespoke outdoor spaces designed to suit your property, style, and lifestyle."
+        description: "Bespoke outdoor spaces designed to suit your property, style, and lifestyle.",
       },
       {
         title: "Patios & Pathways",
-        description: "Beautiful, durable patios and walkways built with proper preparation and quality materials."
+        description:
+          "Beautiful, durable patios and walkways built with proper preparation and quality materials.",
       },
       {
         title: "Driveway Installation",
-        description: "Block paving, gravel, tarmac, and resin-style driveway solutions built for appearance and longevity."
+        description:
+          "Block paving, gravel, tarmac, and resin-style driveway solutions built for appearance and longevity.",
       },
       {
         title: "Fencing",
-        description: "Strong, attractive fencing for privacy, security, and a clean finish to your outdoor space."
+        description:
+          "Strong, attractive fencing for privacy, security, and a clean finish to your outdoor space.",
       },
       {
         title: "Groundworks",
-        description: "Professional groundwork services including excavation, sub-base preparation, levelling, and site preparation."
+        description:
+          "Professional groundwork services including excavation, sub-base preparation, levelling, and site preparation.",
       },
       {
         title: "Garden Renovation & Maintenance",
-        description: "From full garden overhauls to general improvements, we create outdoor spaces that are practical and easy to enjoy."
-      }
+        description:
+          "From full garden overhauls to general improvements, we create outdoor spaces that are practical and easy to enjoy.",
+      },
     ],
     additionalServicesLabel: "Also offering:",
     additionalServices: "Tree Removal / Site Clearance",
-    additionalServicesLink: "Contact us for details"
+    additionalServicesLink: "Contact us for details",
   },
 
   whyChoose: {
     heading: "Why Choose TPPS",
-    subtitle: "We take pride in every detail. Here's why homeowners across East Kent trust us with their properties.",
+    subtitle:
+      "We take pride in every detail. Here's why homeowners across East Kent trust us with their properties.",
     points: [
       "Local Thanet company",
       "Fully licensed and insured",
@@ -67,19 +74,21 @@ export const siteContent = {
       "Quality materials",
       "Attention to detail",
       "Friendly, reliable service",
-      "Built to last"
+      "Built to last",
     ],
     featuredProject: {
       badge: "Featured Project",
       title: "Outdoor Spaces Built to Last",
-      description: "See how we transform ordinary gardens into stunning, practical spaces designed for modern living.",
-      ctaText: "View More Work"
-    }
+      description:
+        "See how we transform ordinary gardens into stunning, practical spaces designed for modern living.",
+      ctaText: "View More Work",
+    },
   },
 
   areas: {
     heading: "Proudly Serving Thanet and Surrounding Areas",
-    description: "We provide landscaping and groundwork services across Broadstairs, Ramsgate, Margate, and nearby parts of East Kent. If you're looking for a reliable local team for patios, driveways, fencing, or garden transformations, TPPS is here to help.",
+    description:
+      "We provide landscaping and groundwork services across Broadstairs, Ramsgate, Margate, and nearby parts of East Kent. If you're looking for a reliable local team for patios, driveways, fencing, or garden transformations, TPPS is here to help.",
     locations: [
       "Broadstairs",
       "Ramsgate",
@@ -87,9 +96,9 @@ export const siteContent = {
       "Westgate-on-Sea",
       "Birchington",
       "Sandwich",
-      "Deal"
+      "Deal",
     ],
-    additionalText: "Other nearby areas on request"
+    additionalText: "Other nearby areas on request",
   },
 
   testimonials: {
@@ -99,31 +108,32 @@ export const siteContent = {
       {
         text: "TPPS transformed our tired garden into an incredible outdoor living space. The patio looks fantastic, and their attention to detail was spot on. Highly recommend.",
         author: "Sarah J.",
-        location: "Broadstairs"
+        location: "Broadstairs",
       },
       {
         text: "Professional, reliable, and left the site spotless every day. We had a new block paved driveway installed and the finish is superb. Great team to work with.",
         author: "Mark & Emma",
-        location: "Ramsgate"
+        location: "Ramsgate",
       },
       {
         text: "The groundwork for our new extension and the subsequent landscaping was handled perfectly. Honest advice and quality craftsmanship throughout the project.",
         author: "David L.",
-        location: "Margate"
-      }
-    ]
+        location: "Margate",
+      },
+    ],
   },
 
   cta: {
     heading: "Call Today for a Free Quotation & Site Survey",
-    subtitle: "Let's transform your outdoor space with quality landscaping, groundwork, patios, driveways, and fencing tailored to your property.",
+    subtitle:
+      "Let's transform your outdoor space with quality landscaping, groundwork, patios, driveways, and fencing tailored to your property.",
     primaryButton: "Get a Free Quote",
-    secondaryButton: "Call Now"
+    secondaryButton: "Call Now",
   },
 
   contact: {
     phone: "01234567890",
-    email: "info@tppslandscapes.co.uk"
+    email: "info@tppslandscapes.co.uk",
   },
 
   navigation: {
@@ -134,14 +144,15 @@ export const siteContent = {
       { name: "About", href: "#about" },
       { name: "Gallery", href: "#gallery" },
       { name: "Areas We Cover", href: "#areas" },
-      { name: "Contact", href: "#contact" }
+      { name: "Contact", href: "#contact" },
     ],
     ctaPrimary: "Get a Free Quote",
-    ctaSecondary: "Call Now"
+    ctaSecondary: "Call Now",
   },
 
   footer: {
-    companyDescription: "High-quality landscaping, groundworks, patios, driveways, fencing, and garden transformations across Broadstairs, Ramsgate, Margate, and surrounding areas. Built to last.",
+    companyDescription:
+      "High-quality landscaping, groundworks, patios, driveways, fencing, and garden transformations across Broadstairs, Ramsgate, Margate, and surrounding areas. Built to last.",
     quickLinksTitle: "Quick Links",
     areasTitle: "Areas We Cover",
     contactTitle: "Contact Us",
@@ -149,6 +160,6 @@ export const siteContent = {
     locationText: "Serving Thanet &\nSurrounding East Kent Areas",
     copyright: "TPPS Landscapes Ltd. All rights reserved.",
     privacyPolicy: "Privacy Policy",
-    termsOfService: "Terms of Service"
-  }
+    termsOfService: "Terms of Service",
+  },
 };
