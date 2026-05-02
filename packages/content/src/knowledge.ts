@@ -31,7 +31,9 @@ export const companyKnowledge = {
   currentOperatingModelNotes: [
     pricingPolicy.surveyPolicy,
     pricingPolicy.quoteTimeline,
-    ...(company.credentials.licensed && company.credentials.insured ? ["Fully licensed and insured."] : []),
+    ...(company.credentials.licensed && company.credentials.insured
+      ? ["Fully licensed and insured."]
+      : []),
     `Local to ${company.location.area} with ${company.credentials.yearsExperience}+ years' experience.`,
   ],
   plannedOrExploratoryIdeas: [

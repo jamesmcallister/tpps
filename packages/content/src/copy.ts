@@ -15,9 +15,7 @@ import { company } from "./company";
 
 const primaryTowns = company.location.towns.slice(0, 3);
 const townListWithAnd =
-  primaryTowns.slice(0, -1).join(", ") +
-  " and " +
-  primaryTowns[primaryTowns.length - 1];
+  primaryTowns.slice(0, -1).join(", ") + " and " + primaryTowns[primaryTowns.length - 1];
 
 export const areasWeCover = {
   heading: `Proudly Serving ${company.location.area}`,
@@ -95,43 +93,44 @@ import { services } from "./services";
 
 export const serviceCardCopy: Record<string, { heading: string; short: string; full: string }> = {
   "patios-pathways": {
-    heading: services.find(s => s.id === "patios-pathways")?.name ?? "Patio & Pathway Installation",
+    heading:
+      services.find((s) => s.id === "patios-pathways")?.name ?? "Patio & Pathway Installation",
     short:
       "Create the perfect place to relax, dine or entertain outdoors. We install patios using quality materials and proper ground preparation for a strong, attractive finish.",
     full: "Create a space to relax, entertain or enjoy the garden with a professionally installed patio or pathway. We prepare the ground properly before laying slabs, paving, bricks or stone, helping to ensure a clean finish that is durable and built to last. Whether you want a small seating area or a full garden pathway, we can create a design that fits naturally with your outdoor space.",
   },
   driveways: {
-    heading: services.find(s => s.id === "driveways")?.name ?? "Driveway Construction",
+    heading: services.find((s) => s.id === "driveways")?.name ?? "Driveway Construction",
     short:
       "Improve your home's entrance with a practical and long-lasting driveway. We can help with block paving, gravel, tarmac and resin-bound options.",
     full: "A new driveway can improve the look of your home while giving you a strong, reliable surface for everyday use. Our team can handle the full process, including excavation, ground preparation, sub-base installation and the finished surface. We work with a range of driveway options, including block paving, gravel, tarmac and resin-bound surfaces.",
   },
   fencing: {
-    heading: services.find(s => s.id === "fencing")?.name ?? "Fence Installation",
+    heading: services.find((s) => s.id === "fencing")?.name ?? "Fence Installation",
     short:
       "Add privacy, security and structure to your garden with professionally installed fencing tailored to your property.",
     full: "Good fencing can add privacy, security and a smart finish to your garden. We install a range of fencing styles and materials to suit different homes, gardens and budgets. Whether you need to replace old panels, secure a boundary or improve the look of your outdoor space, we can recommend the right option for you.",
   },
   "garden-design": {
-    heading: services.find(s => s.id === "garden-design")?.name ?? "Garden Design & Planning",
+    heading: services.find((s) => s.id === "garden-design")?.name ?? "Garden Design & Planning",
     short:
       "A well-designed garden can completely change the way you use your outdoor space. We help you plan a garden that suits your home, your lifestyle and the amount of maintenance you want.",
     full: "A well-designed garden can completely change the way you use your outdoor space. We help you plan a garden that suits your home, your lifestyle and the amount of maintenance you want. Whether you prefer a modern, clean design or something more traditional and natural, we can help bring your ideas together and create a practical plan for your garden.",
   },
   groundworks: {
-    heading: services.find(s => s.id === "groundworks")?.name ?? "Gardens & Groundworks",
+    heading: services.find((s) => s.id === "groundworks")?.name ?? "Gardens & Groundworks",
     short:
       "Good groundwork is the foundation of every successful outdoor project. We prepare sites properly to support patios, driveways, landscaping and garden renovations.",
     full: "From regular garden improvements to full groundwork preparation, we help create outdoor spaces that are both attractive and practical. Our services can include lawn preparation, planting areas, levelling, drainage, foundations, garden clearance and full outdoor renovations. Whether you need a fresh start or ongoing improvements, TPPS can help get the job done properly.",
   },
   "tree-removal": {
-    heading: services.find(s => s.id === "tree-removal")?.name ?? "Tree Removal",
+    heading: services.find((s) => s.id === "tree-removal")?.name ?? "Tree Removal",
     short:
       "Safe and efficient tree removal with minimal disruption to your garden and surrounding areas.",
     full: "If you have a tree that is unsafe, overgrown or in the way of a new project, our team can help remove it safely and efficiently. We take care to minimise disruption to your garden and surrounding areas, leaving the space clear and ready for its next use.",
   },
   "garden-maintenance": {
-    heading: services.find(s => s.id === "garden-maintenance")?.name ?? "Garden Makeovers",
+    heading: services.find((s) => s.id === "garden-maintenance")?.name ?? "Garden Makeovers",
     short:
       "Whether your garden needs a simple refresh or a complete redesign, we can help turn it into a space that works for you.",
     full: "A beautiful and well-maintained garden can transform your outdoor space into a peaceful retreat, boost kerb appeal, and provide a relaxing environment for you and your family. Our gardening service is designed to help you create and maintain the perfect garden, whether you are looking for regular upkeep, seasonal planting, or a complete garden redesign.",
@@ -156,7 +155,9 @@ export const ctas = {
 
 export const trustPoints = [
   "Free quotations and site surveys",
-  ...(company.credentials.licensed && company.credentials.insured ? ["Fully licensed and insured"] : []),
+  ...(company.credentials.licensed && company.credentials.insured
+    ? ["Fully licensed and insured"]
+    : []),
   "Local and reliable",
   "Quality workmanship guaranteed",
 ] as string[];
@@ -190,7 +191,8 @@ export const whyChoose = {
   featuredProject: {
     badge: "Featured Project",
     title: "Outdoor Spaces Built to Last",
-    description: "See how we transform ordinary gardens into stunning, practical spaces designed for modern living.",
+    description:
+      "See how we transform ordinary gardens into stunning, practical spaces designed for modern living.",
   },
 };
 
@@ -199,5 +201,6 @@ export const whyChoose = {
 // ---------------------------------------------------------------------------
 
 export const ctaBanner = {
-  subtitle: "Let's transform your outdoor space with quality landscaping, groundwork, patios, driveways, and fencing tailored to your property.",
+  subtitle:
+    "Let's transform your outdoor space with quality landscaping, groundwork, patios, driveways, and fencing tailored to your property.",
 };
