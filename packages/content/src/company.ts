@@ -20,7 +20,15 @@ export const company = {
   location: {
     area: "Thanet and East Kent",
     /** Specific towns used in marketing copy and area coverage lists */
-    towns: ["Broadstairs", "Ramsgate", "Margate"] as string[],
+    towns: [
+      "Broadstairs",
+      "Ramsgate",
+      "Margate",
+      "Westgate-on-Sea",
+      "Birchington",
+      "Sandwich",
+      "Deal",
+    ] as string[],
     locale: "UK",
   },
   credentials: {

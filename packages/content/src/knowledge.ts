@@ -31,7 +31,7 @@ export const companyKnowledge = {
   currentOperatingModelNotes: [
     pricingPolicy.surveyPolicy,
     pricingPolicy.quoteTimeline,
-    `Fully licensed and insured.`,
+    ...(company.credentials.licensed && company.credentials.insured ? ["Fully licensed and insured."] : []),
     `Local to ${company.location.area} with ${company.credentials.yearsExperience}+ years' experience.`,
   ],
   plannedOrExploratoryIdeas: [
@@ -48,7 +48,7 @@ export const companyKnowledge = {
       "Guaranteed start dates before quote approval",
       "Services outside of landscaping and groundworks without checking",
     ],
-    internalOnlyNotes: ["Labour is typically 60–70% of the quote."],
+    internalOnlyNotes: ["Labour is typically 60-70% of the quote."],
   },
 } as const;
 
@@ -74,7 +74,7 @@ export const helloKnowledge = {
       return {
         name: s.name,
         lineItems: pricing.map((p) =>
-          p.notes ? `${p.notes}: £${p.min}–£${p.max} ${p.unit}` : `£${p.min}–£${p.max} ${p.unit}`,
+          p.notes ? `${p.notes}: £${p.min}-£${p.max} ${p.unit}` : `£${p.min}-£${p.max} ${p.unit}`,
         ),
         notes: pricingPolicy.notes,
       };
@@ -93,7 +93,7 @@ export const helloKnowledge = {
       "What is your rough timeline or urgency?",
     ],
     credentials: [...trustPoints],
-    commonProjects: ["Typical residential projects range £2,000–£8,000 (all-in, inc. VAT)."],
+    commonProjects: ["Typical residential projects range £2,000-£8,000 (all-in, inc. VAT)."],
   },
   followUpGuidance: {
     principles: [

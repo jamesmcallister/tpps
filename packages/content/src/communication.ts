@@ -20,7 +20,7 @@ export const communicationRules = {
     "Format dates as DD/MM/YYYY",
     "Be warm and polite",
     "Ask clarifying questions if the customer's request is vague (area m², finish level, special site conditions)",
-    "Quote a range, not a fixed price (e.g. 'typically £35–£50 per m²')",
+    "Quote a range, not a fixed price (e.g. 'typically £35-£50 per m²')",
     "Mention that a site survey is needed for accurate pricing",
     "Mention VAT (20%) when quoting",
     "Always include next steps and clear contact information",

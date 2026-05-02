@@ -81,7 +81,7 @@ export const services: Service[] = [
         min: 800,
         max: 1500,
         unit: "project",
-        notes: "Small–mid excavation / clearance",
+        notes: "Small-mid excavation / clearance",
       },
       { min: 30, max: 50, unit: "per m²", notes: "Levelling" },
     ],
@@ -112,7 +112,7 @@ export const pricingPolicy = {
   notes: [
     "Prices are rough estimates and vary based on accessibility, materials, and ground prep.",
     "All quotes include professional site survey, written estimate, site prep, waste removal, and 20% VAT.",
-    "Typical residential projects range £2,000–£8,000.",
+    "Typical residential projects range £2,000-£8,000.",
   ],
   quoteProcess:
     "We provide rough estimates over email based on our pricing guide. For accurate quotes, we schedule a free site survey.",
