@@ -40,11 +40,3 @@ export const escalationTriggers = [
   "Commercial tender documents",
   "Technical groundworks queries outside the standard service list",
 ];
-
-export const commonResponses = {
-  pricingQuery:
-    "We provide rough estimates over email based on our pricing guide. For accurate quotes, we schedule a free site survey.",
-  bookingSurvey:
-    "Please let us know your availability and address, and we'll arrange a free site survey.",
-  vatNote: "All prices include 20% VAT.",
-};

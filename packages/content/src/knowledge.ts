@@ -13,6 +13,7 @@
 import { company, } from "./company";
 import { services, pricingPolicy } from "./services";
 import { communicationRules, voiceProfile, escalationTriggers } from "./communication";
+import { trustPoints } from "./copy";
 
 // ---------------------------------------------------------------------------
 // Company-level knowledge (knowledgeId: "company")
@@ -95,7 +96,7 @@ export const helloKnowledge = {
       "Are there any access limitations or ground conditions we should know about?",
       "What is your rough timeline or urgency?",
     ],
-    credentials: company.positioning.coreValues as unknown as string[],
+    credentials: [...trustPoints],
     commonProjects: [
       "Typical residential projects range £2,000–£8,000 (all-in, inc. VAT).",
     ],

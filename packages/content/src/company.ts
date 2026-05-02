@@ -20,6 +20,8 @@ export const company = {
   },
   location: {
     area: "Thanet and East Kent",
+    /** Specific towns used in marketing copy and area coverage lists */
+    towns: ["Broadstairs", "Ramsgate", "Margate"] as string[],
     locale: "UK",
   },
   credentials: {
@@ -30,16 +32,4 @@ export const company = {
     vatRate: 0.2,
   },
   audiences: ["homeowners", "property developers", "commercial sites"],
-  positioning: {
-    coreProblems: [
-      "Customers need reliable, clear pricing and reliable landscapers in East Kent.",
-      "Gardens and driveways need professional, insured groundwork.",
-    ],
-    coreValues: [
-      "Free site surveys",
-      "Detailed written quotes within 2 working days",
-      "Quality materials and finish guaranteed",
-      "Fully licensed and insured",
-    ],
-  },
 } as const;

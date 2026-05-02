@@ -10,3 +10,4 @@ export * from "./services";
 export * from "./communication";
 export * from "./mailboxes";
 export * from "./knowledge";
+export * from "./copy";
