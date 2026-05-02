@@ -241,7 +241,7 @@ export function Home() {
                 className="w-full h-full object-cover opacity-60 mix-blend-overlay absolute inset-0"
               />
               <div className="relative z-10 p-10 md:p-14 h-full flex flex-col justify-end min-h-[500px] bg-gradient-to-t from-stone-900 via-stone-900/40 to-transparent">
-                <div className="inline-block px-4 py-1.5 bg-green-500 text-white font-medium rounded-full text-xs uppercase tracking-wider mb-6 w-fit">
+                <div className="inline-block px-4 py-1.5 bg-green-800 text-white font-medium rounded-full text-xs uppercase tracking-wider mb-6 w-fit">
                   {siteContent.whyChoose.featuredProject.badge}
                 </div>
                 <h3 className="text-3xl font-bold text-white mb-4">

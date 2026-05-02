@@ -8,6 +8,8 @@
     "format:check": "oxfmt --check .",
     "dev:web": "pnpm --filter web run dev",
     "build:web": "pnpm --filter web run build",
+    "test:web:e2e": "pnpm --filter web run test:e2e",
+    "test:web:lighthouse": "pnpm --filter web run test:lighthouse",
     "deploy:web": "pnpm --filter web run deploy",
     "dev:email": "pnpm --filter email run dev",
     "build:email": "pnpm --filter email run build",
