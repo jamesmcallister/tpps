@@ -13,7 +13,6 @@ import { company } from "./company";
 // Areas
 // ---------------------------------------------------------------------------
 
-const townList = company.location.towns.join(", ");
 const townListWithAnd =
   company.location.towns.slice(0, -1).join(", ") +
   " and " +
@@ -87,10 +86,7 @@ export const about = {
 // Service card copy (keyed by service ID from services.ts)
 // ---------------------------------------------------------------------------
 
-export const serviceCardCopy: Record<
-  string,
-  { heading: string; short: string; full: string }
-> = {
+export const serviceCardCopy: Record<string, { heading: string; short: string; full: string }> = {
   "patios-pathways": {
     heading: "Patio & Pathway Installation",
     short:

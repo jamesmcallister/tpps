@@ -6,7 +6,7 @@ React, TypeScript, Vite, Tailwind, and Ox tooling for the TPPS website.
 
 - `npm run dev` starts the Vite development server.
 - `npm run build` creates a production build.
-- `npm run lint` checks the app with Oxlint.
-- `npm run lint:fix` applies Oxlint safe fixes.
-- `npm run format` formats the app with Oxfmt.
-- `npm run format:check` checks formatting without writing files.
+- `npm run lint` from the repo root checks the full workspace with Oxlint.
+- `npm run lint:fix` from the repo root applies Oxlint safe fixes.
+- `npm run format` from the repo root formats the full workspace with Oxfmt.
+- `npm run format:check` from the repo root checks formatting without writing files.

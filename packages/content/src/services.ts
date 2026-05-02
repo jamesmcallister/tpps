@@ -51,8 +51,7 @@ export const services: Service[] = [
   {
     id: "fencing",
     name: "Fencing",
-    description:
-      "Supply and installation of closeboard, ranch-style, and privacy fencing.",
+    description: "Supply and installation of closeboard, ranch-style, and privacy fencing.",
     live: true,
     pricing: [
       { min: 80, max: 120, unit: "per linear meter", notes: "Closeboard panels" },
@@ -64,8 +63,7 @@ export const services: Service[] = [
   {
     id: "garden-design",
     name: "Garden Design & Planning",
-    description:
-      "Consultations, concept sketches, and full 3D garden design packages.",
+    description: "Consultations, concept sketches, and full 3D garden design packages.",
     live: true,
     pricing: [
       { min: 150, max: 300, unit: "fixed", notes: "Consultation & basic sketch" },
@@ -76,8 +74,7 @@ export const services: Service[] = [
   {
     id: "groundworks",
     name: "Groundworks",
-    description:
-      "Excavation, levelling, sub-base preparation, and site clearance.",
+    description: "Excavation, levelling, sub-base preparation, and site clearance.",
     live: true,
     pricing: [
       {
@@ -104,8 +101,7 @@ export const services: Service[] = [
   {
     id: "garden-maintenance",
     name: "Garden Renovation & Maintenance",
-    description:
-      "Ongoing maintenance, seasonal tidy-ups, and full garden renovation projects.",
+    description: "Ongoing maintenance, seasonal tidy-ups, and full garden renovation projects.",
     live: true,
     tags: ["maintenance", "renovation", "tidy"],
   },

@@ -1,21 +1,21 @@
 type SystemPromptArgs = {
-  profileName: string
-  profileRole: string
-  profileEmailAddress: string
-  profileTone: string
-  companyName: string
-  companyShortDescription: string
-  companyLongDescription: string
-  knowledgeContext: string
-  contactMemoryContext: string
-  classificationCategory: string
-  classificationConfidence: string
-  classificationReasons: string
-  threadContext: string
-}
+  profileName: string;
+  profileRole: string;
+  profileEmailAddress: string;
+  profileTone: string;
+  companyName: string;
+  companyShortDescription: string;
+  companyLongDescription: string;
+  knowledgeContext: string;
+  contactMemoryContext: string;
+  classificationCategory: string;
+  classificationConfidence: string;
+  classificationReasons: string;
+  threadContext: string;
+};
 
 export function renderSystemPrompt(args: SystemPromptArgs): string {
-	return `You are ${args.profileName}, the ${args.profileRole} at ${args.profileEmailAddress}.
+  return `You are ${args.profileName}, the ${args.profileRole} at ${args.profileEmailAddress}.
 
 You are ${args.profileTone}. Use UK English. Write like a real person, not a support script. Write short, clear paragraphs. Answer the main question first. Ask only a small number of useful follow-up questions when needed. Prefer practical next steps. Sound natural, warm, and commercially useful. Avoid robotic phrasing, box-ticking language, and repetitive filler.
 
@@ -43,5 +43,5 @@ Current classification:
 Earlier thread context:
 ${args.threadContext}
 
-Write only the reply body as plain text. Do not include a subject line. Do not use markdown or bullet points unless the sender explicitly asked for a list.`
+Write only the reply body as plain text. Do not include a subject line. Do not use markdown or bullet points unless the sender explicitly asked for a list.`;
 }

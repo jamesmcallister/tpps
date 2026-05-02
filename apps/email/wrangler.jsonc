@@ -1,73 +1,65 @@
 {
-	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "tpps-inbox",
-	"compatibility_date": "2025-11-28",
-	"main": "./workers/app.ts",
-	"observability": {
-		"enabled": true
-	},
-	"compatibility_flags": [
-		"nodejs_compat"
-	],
-	"vars": {
-		// Production deploys must also define POLICY_AUD and TEAM_DOMAIN.
-		// TEAM_DOMAIN may be the base Access URL or the full /cdn-cgi/access/certs URL.
-		// The worker now fails closed outside local development if Access is not configured.
-		"DOMAINS": "tppslandscapes.co.uk",
-		"EMAIL_ADDRESSES": [],
-		"TEAM_DOMAIN": "https://tpps.cloudflareaccess.com/cdn-cgi/access/certs",
-		"POLICY_AUD": "e9e170c5cf327b0a85e92b34e9f11809e841e0033a10010cdde06ead3bbc6c8d"
-	},
-	"send_email": [
-		{
-			"name": "EMAIL",
-			"remote": true
-		}
-	],
-	"r2_buckets": [
-		{
-			"binding": "BUCKET",
-			"bucket_name": "tpps-inbox",
-			"preview_bucket_name": "tpps-inbox"
-		}
-	],
-	"ai": {
-		"binding": "AI"
-	},
-	"durable_objects": {
-		"bindings": [
-			{
-				"name": "MAILBOX",
-				"class_name": "MailboxDO"
-			},
-			{
-				"name": "EMAIL_AGENT",
-				"class_name": "EmailAgent"
-			},
-			{
-				"name": "EMAIL_MCP",
-				"class_name": "EmailMCP"
-			}
-		]
-	},
-	"migrations": [
-		{
-			"tag": "v1",
-			"new_sqlite_classes": [
-				"MailboxDO"
-			]
-		},
-		{
-			"tag": "v2",
-			"new_sqlite_classes": [
-				"EmailAgent"
-			]
-		},
-		{
-			"tag": "v3",
-			"new_sqlite_classes": [
-				"EmailMCP"
-			]
-		}
-	]
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "tpps-inbox",
+  "compatibility_date": "2025-11-28",
+  "main": "./workers/app.ts",
+  "observability": {
+    "enabled": true,
+  },
+  "compatibility_flags": ["nodejs_compat"],
+  "vars": {
+    // Production deploys must also define POLICY_AUD and TEAM_DOMAIN.
+    // TEAM_DOMAIN may be the base Access URL or the full /cdn-cgi/access/certs URL.
+    // The worker now fails closed outside local development if Access is not configured.
+    "DOMAINS": "tppslandscapes.co.uk",
+    "EMAIL_ADDRESSES": [],
+    "TEAM_DOMAIN": "https://tpps.cloudflareaccess.com/cdn-cgi/access/certs",
+    "POLICY_AUD": "e9e170c5cf327b0a85e92b34e9f11809e841e0033a10010cdde06ead3bbc6c8d",
+  },
+  "send_email": [
+    {
+      "name": "EMAIL",
+      "remote": true,
+    },
+  ],
+  "r2_buckets": [
+    {
+      "binding": "BUCKET",
+      "bucket_name": "tpps-inbox",
+      "preview_bucket_name": "tpps-inbox",
+    },
+  ],
+  "ai": {
+    "binding": "AI",
+  },
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "MAILBOX",
+        "class_name": "MailboxDO",
+      },
+      {
+        "name": "EMAIL_AGENT",
+        "class_name": "EmailAgent",
+      },
+      {
+        "name": "EMAIL_MCP",
+        "class_name": "EmailMCP",
+      },
+    ],
+  },
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": ["MailboxDO"],
+    },
+    {
+      "tag": "v2",
+      "new_sqlite_classes": ["EmailAgent"],
+    },
+    {
+      "tag": "v3",
+      "new_sqlite_classes": ["EmailMCP"],
+    },
+  ],
 }

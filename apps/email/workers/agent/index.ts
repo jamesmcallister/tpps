@@ -1,1 +1,1 @@
-export { EmailAgent } from '../../src/agent'
+export { EmailAgent } from "../../src/agent";

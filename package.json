@@ -2,11 +2,19 @@
   "name": "tpps-monorepo",
   "private": true,
   "scripts": {
+    "lint": "oxlint .",
+    "lint:fix": "oxlint . --fix",
+    "format": "oxfmt --write .",
+    "format:check": "oxfmt --check .",
     "dev:web": "pnpm --filter web run dev",
     "build:web": "pnpm --filter web run build",
     "deploy:web": "pnpm --filter web run deploy",
     "dev:email": "pnpm --filter email run dev",
     "build:email": "pnpm --filter email run build",
     "deploy:email": "pnpm --filter email run deploy"
+  },
+  "devDependencies": {
+    "oxfmt": "^0.47.0",
+    "oxlint": "^1.62.0"
   }
 }

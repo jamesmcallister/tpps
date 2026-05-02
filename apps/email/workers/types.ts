@@ -2,4 +2,4 @@
 // Licensed under the Apache 2.0 license found in the LICENSE file or at:
 //     https://opensource.org/licenses/Apache-2.0
 
-export type Env = Cloudflare.Env
+export type Env = Cloudflare.Env;

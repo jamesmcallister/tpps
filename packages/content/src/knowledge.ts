@@ -10,7 +10,7 @@
  *   - helloKnowledge    — rich customer-facing knowledge for hello@ (knowledgeId: "hello")
  */
 
-import { company, } from "./company";
+import { company } from "./company";
 import { services, pricingPolicy } from "./services";
 import { communicationRules, voiceProfile, escalationTriggers } from "./communication";
 import { trustPoints } from "./copy";
@@ -27,9 +27,7 @@ export const companyKnowledge = {
     "People needing groundworks, driveways, or patios",
   ],
   confirmedCurrentCapabilities: services.filter((s) => s.live).map((s) => s.name),
-  inProgressCapabilities: [
-    "Project timelines depend on site surveys and material availability.",
-  ],
+  inProgressCapabilities: ["Project timelines depend on site surveys and material availability."],
   currentOperatingModelNotes: [
     pricingPolicy.surveyPolicy,
     pricingPolicy.quoteTimeline,
@@ -76,9 +74,7 @@ export const helloKnowledge = {
       return {
         name: s.name,
         lineItems: pricing.map((p) =>
-          p.notes
-            ? `${p.notes}: £${p.min}–£${p.max} ${p.unit}`
-            : `£${p.min}–£${p.max} ${p.unit}`,
+          p.notes ? `${p.notes}: £${p.min}–£${p.max} ${p.unit}` : `£${p.min}–£${p.max} ${p.unit}`,
         ),
         notes: pricingPolicy.notes,
       };
@@ -97,9 +93,7 @@ export const helloKnowledge = {
       "What is your rough timeline or urgency?",
     ],
     credentials: [...trustPoints],
-    commonProjects: [
-      "Typical residential projects range £2,000–£8,000 (all-in, inc. VAT).",
-    ],
+    commonProjects: ["Typical residential projects range £2,000–£8,000 (all-in, inc. VAT)."],
   },
   followUpGuidance: {
     principles: [
@@ -123,10 +117,7 @@ export const helloKnowledge = {
     notes: pricingPolicy.notes,
   },
   rules: {
-    mustNotClaim: [
-      ...companyKnowledge.rules.mustNotClaim,
-      ...escalationTriggers,
-    ],
+    mustNotClaim: [...companyKnowledge.rules.mustNotClaim, ...escalationTriggers],
     internalOnlyNotes: companyKnowledge.rules.internalOnlyNotes as unknown as string[],
   },
 } as const;

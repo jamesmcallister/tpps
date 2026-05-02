@@ -9,8 +9,7 @@ export const company = {
   description: {
     short:
       "TPPS Landscapes Ltd is a premium landscaping and groundwork company serving Thanet and East Kent.",
-    long:
-      "TPPS Landscapes handles gardening and groundwork enquiries, providing patios, driveways, fencing, design, groundworks, tree removal, and garden maintenance. Based in Thanet with 10+ years' experience.",
+    long: "TPPS Landscapes handles gardening and groundwork enquiries, providing patios, driveways, fencing, design, groundworks, tree removal, and garden maintenance. Based in Thanet with 10+ years' experience.",
   },
   contact: {
     email: "hello@tppslandscapes.co.uk",

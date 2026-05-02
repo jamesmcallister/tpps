@@ -1,13 +1,13 @@
 type InteractivePromptArgs = {
-	companyName: string;
-	companyShortDescription: string;
-	companyLongDescription: string;
-	knowledgeContext: string;
-	question: string;
+  companyName: string;
+  companyShortDescription: string;
+  companyLongDescription: string;
+  knowledgeContext: string;
+  question: string;
 };
 
 export function renderInteractivePrompt(args: InteractivePromptArgs): string {
-	return `Company: ${args.companyName}
+  return `Company: ${args.companyName}
 Short description: ${args.companyShortDescription}
 Long description: ${args.companyLongDescription}
 

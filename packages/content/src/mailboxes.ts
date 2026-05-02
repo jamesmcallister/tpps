@@ -49,7 +49,5 @@ export const mailboxes: Record<string, MailboxConfig> = {
 
 /** Shape expected by the legacy `src/config/company.json` import in the email worker. */
 export const companyConfig = {
-  mailboxes: Object.fromEntries(
-    Object.entries(mailboxes).map(([email, cfg]) => [email, cfg])
-  ),
+  mailboxes: Object.fromEntries(Object.entries(mailboxes).map(([email, cfg]) => [email, cfg])),
 } as const;
