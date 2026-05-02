@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test:e2e": "pnpm build && playwright test",
+    "test:lighthouse": "pnpm build && lhci autorun"
   },
   "dependencies": {
     "lucide-react": "^1.14.0",
@@ -15,6 +17,9 @@
     "react-router": "^7.14.2"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.11.3",
+    "@lhci/cli": "^0.15.1",
+    "@playwright/test": "^1.59.1",
     "@tailwindcss/vite": "^4.2.4",
     "@types/node": "^24.12.2",
     "@types/react": "^19.2.14",

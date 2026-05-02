@@ -109,10 +109,10 @@ export function Footer() {
         </div>
 
         <div className="border-t border-stone-800 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-stone-500 text-sm">
+          <p className="text-stone-400 text-sm">
             &copy; {currentYear} {siteContent.footer.copyright}
           </p>
-          <div className="flex gap-4 text-sm text-stone-500">
+          <div className="flex gap-4 text-sm text-stone-400">
             <a href="#" className="hover:text-white transition-colors">
               {siteContent.footer.privacyPolicy}
             </a>
