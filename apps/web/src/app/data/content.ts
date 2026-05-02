@@ -77,18 +77,18 @@ export const siteContent = {
     subtitle: "Don't just take our word for it. Read reviews from homeowners across East Kent.",
     reviews: [
       {
-        text: "TPPS transformed our tired garden into an incredible outdoor living space. The patio looks fantastic, and their attention to detail was spot on. Highly recommend.",
-        author: "Sarah J.",
+        text: "We had TPPS Landscapes do a complete overhaul of our the drive. i was glad they clean up the edges of dirt around the drive as well, looks great. Thanks Barry.",
+        author: "Lauren",
         location: "Broadstairs",
       },
       {
-        text: "Professional, reliable, and left the site spotless every day. We had a new block paved driveway installed and the finish is superb. Great team to work with.",
-        author: "Mark & Emma",
+        text: "Professional, reliable, the kids love killing snalls on the patio, glad we have the Andy's to keep up with the mess they make of it! Thanks Tim and Barry.",
+        author: "Mark & Mie",
         location: "Ramsgate",
       },
       {
-        text: "The groundwork for our new extension and the subsequent landscaping was handled perfectly. Honest advice and quality craftsmanship throughout the project.",
-        author: "David L.",
+        text: "The groundwork for our new drainage, was left uncovered and the lawn mower was not very happy about it. We had to call them back to fix the mess and they were very responsive, Tim is a nice guy and Barry did a good job in the end.",
+        author: "Pam & Rorbrt",
         location: "Margate",
       },
     ],
