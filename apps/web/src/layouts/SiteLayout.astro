@@ -3,6 +3,7 @@ import logoUrl from "../imports/1864a6704a2ffa0192d2ce0eef648091.jpeg";
 import "../styles/index.css";
 import { company } from "@tpps/content";
 import { siteContent } from "../app/data/content";
+import { serviceRoutes } from "../app/data/routes";
 
 const currentYear = new Date().getFullYear();
 const navLinks = siteContent.navigation.links.map((link) => {
@@ -10,6 +11,13 @@ const navLinks = siteContent.navigation.links.map((link) => {
   if (link.href.startsWith("#")) return { ...link, href: `/${link.href}` };
   return link;
 });
+const footerLinks = [
+  { name: "Home", href: "/" },
+  { name: "About", href: "/#about" },
+  { name: "Gallery", href: "/#gallery" },
+  { name: "Areas We Cover", href: "/#areas" },
+  { name: "Contact", href: "/#contact" },
+];
 
 interface Props {
   title: string;
@@ -94,7 +102,7 @@ const emailHref = `mailto:${siteContent.contact.email}`;
               <span>{siteContent.navigation.ctaSecondary}</span>
             </a>
             <a
-              href="#contact"
+              href="/#contact"
               class="rounded-md bg-green-800 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-green-900"
             >
               {siteContent.navigation.ctaPrimary}
@@ -139,7 +147,7 @@ const emailHref = `mailto:${siteContent.contact.email}`;
             <span>{siteContent.navigation.ctaSecondary}</span>
           </a>
           <a
-            href="#contact"
+            href="/#contact"
             class="flex w-full items-center justify-center rounded-md bg-green-800 py-3 font-semibold text-white"
           >
             {siteContent.navigation.ctaPrimary}
@@ -176,7 +184,7 @@ const emailHref = `mailto:${siteContent.contact.email}`;
             <h2 class="mb-6 font-semibold text-white">{siteContent.footer.quickLinksTitle}</h2>
             <ul class="flex flex-col gap-3">
               {
-                navLinks.map((link) => (
+                footerLinks.map((link) => (
                   <li>
                     <a
                       href={link.href}
@@ -191,16 +199,16 @@ const emailHref = `mailto:${siteContent.contact.email}`;
           </div>
 
           <div>
-            <h2 class="mb-6 font-semibold text-white">{siteContent.footer.areasTitle}</h2>
+            <h2 class="mb-6 font-semibold text-white">Services</h2>
             <ul class="flex flex-col gap-3">
               {
-                siteContent.areas.locations.slice(0, 6).map((area) => (
+                serviceRoutes.map(({ path, service }) => (
                   <li>
                     <a
-                      href="#areas"
+                      href={path}
                       class="text-sm text-stone-400 transition-colors hover:text-green-500"
                     >
-                      {area}
+                      {service.name}
                     </a>
                   </li>
                 ))
