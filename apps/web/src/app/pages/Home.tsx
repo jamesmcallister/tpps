@@ -125,37 +125,44 @@ export function Home() {
               {
                 title: siteContent.services.items[0].title,
                 desc: siteContent.services.items[0].description,
+                href: "/services/garden-design/",
                 img: "https://images.unsplash.com/photo-1595387426256-cc153122a6f1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsYW5kc2NhcGUlMjBkZXNpZ258ZW58MXx8fHwxNzc2NjEzNDU1fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
               },
               {
                 title: siteContent.services.items[1].title,
                 desc: siteContent.services.items[1].description,
+                href: "/services/patios-pathways/",
                 img: "https://images.unsplash.com/photo-1603518147332-ba54b96276a3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzdG9uZSUyMHBhdGlvfGVufDF8fHx8MTc3NjYxMzQ1NXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
               },
               {
                 title: siteContent.services.items[2].title,
                 desc: siteContent.services.items[2].description,
+                href: "/services/driveways/",
                 img: "https://images.unsplash.com/photo-1770446722312-0fcf39b62900?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxicmljayUyMGRyaXZld2F5fGVufDF8fHx8MTc3NjYxMzQ1NXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
               },
               {
                 title: siteContent.services.items[3].title,
                 desc: siteContent.services.items[3].description,
+                href: "/services/fencing/",
                 img: "https://images.unsplash.com/photo-1763909129965-67e92392f861?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3b29kZW4lMjBnYXJkZW4lMjBmZW5jZXxlbnwxfHx8fDE3NzY2MDYyMjF8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
               },
               {
                 title: siteContent.services.items[4].title,
                 desc: siteContent.services.items[4].description,
+                href: "/services/groundworks/",
                 img: "https://images.unsplash.com/photo-1759579471642-8295d40db07c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxncm91bmR3b3JrJTIwY29uc3RydWN0aW9uJTIwZGlnZ2VyfGVufDF8fHx8MTc3NjYxMzQ1Nnww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
               },
               {
                 title: siteContent.services.items[5].title,
                 desc: siteContent.services.items[5].description,
+                href: "/services/garden-maintenance/",
                 img: "https://images.unsplash.com/photo-1683316924890-6a8c5ab10d29?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxnYXJkZW4lMjBtYWludGVuYW5jZXxlbnwxfHx8fDE3NzY2MTM0NTh8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
               },
             ].map((service, index) => (
-              <div
+              <a
                 key={index}
-                className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 border border-stone-100 group cursor-pointer flex flex-col"
+                href={service.href}
+                className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 border border-stone-100 group flex flex-col focus:outline-none focus:ring-2 focus:ring-green-800 focus:ring-offset-4"
               >
                 <div className="h-60 overflow-hidden relative">
                   <div className="absolute inset-0 bg-stone-900/10 group-hover:bg-transparent transition-colors z-10"></div>
@@ -175,7 +182,7 @@ export function Home() {
                     </span>
                   </span>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
 
@@ -349,12 +356,55 @@ export function Home() {
         </div>
       </section>
 
+      {/* Gallery / Project Preview */}
+      <section id="gallery" className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-[0.85fr_1.15fr] gap-12 items-center">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold text-stone-900 mb-6">
+                Recent landscaping work across Thanet
+              </h2>
+              <p className="text-lg text-stone-600 leading-relaxed mb-8">
+                A dedicated project gallery is planned for full case studies. For now, this
+                section gives the gallery navigation a real destination and keeps project-led
+                enquiries moving toward a quote conversation.
+              </p>
+              <a
+                href="#contact"
+                className="inline-flex items-center gap-2 bg-green-800 text-white px-6 py-3 rounded-md font-semibold hover:bg-green-900 transition-colors"
+              >
+                Discuss a similar project <span aria-hidden="true">&rarr;</span>
+              </a>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {[
+                "Patio and pathway installations",
+                "Driveway preparation and finishing",
+                "Garden design and planting structure",
+                "Fencing, groundworks, and maintenance",
+              ].map((item) => (
+                <div
+                  key={item}
+                  className="rounded-xl border border-stone-200 bg-stone-50 p-6 shadow-sm"
+                >
+                  <h3 className="font-bold text-stone-900 mb-2">{item}</h3>
+                  <p className="text-sm text-stone-600">
+                    Available across Broadstairs, Ramsgate, Margate, and the wider East Kent area.
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section id="contact" className="py-24 bg-green-900 relative overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-10">
           <ImageWithFallback
             src="https://images.unsplash.com/photo-1761637823276-7d714eb45cb1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiZWF1dGlmdWwlMjBnYXJkZW4lMjBwYXRpb3xlbnwxfHx8fDE3NzY2MTM0NTR8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-            alt="Background"
+            alt=""
+            aria-hidden="true"
             className="w-full h-full object-cover grayscale"
           />
         </div>

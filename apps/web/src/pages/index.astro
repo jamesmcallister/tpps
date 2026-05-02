@@ -1,0 +1,40 @@
+---
+import { company } from "@tpps/content";
+import SiteLayout from "../layouts/SiteLayout.astro";
+import { Home } from "../app/pages/Home";
+
+const title = "TPPS Landscapes Ltd | Landscaping, Patios & Driveways in Thanet";
+const description =
+  "TPPS Landscapes Ltd provides landscaping, patios, driveways, fencing, groundworks, garden design, and garden maintenance across Thanet and East Kent.";
+
+const localBusinessJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: company.name,
+  url: "https://www.tppslandscapes.co.uk/",
+  telephone: company.contact.phone,
+  email: company.contact.email,
+  description: company.description.short,
+  areaServed: company.location.towns.map((town) => ({
+    "@type": "Place",
+    name: town,
+  })),
+  serviceArea: {
+    "@type": "AdministrativeArea",
+    name: company.location.area,
+  },
+  knowsAbout: [
+    "Landscaping",
+    "Patios",
+    "Driveways",
+    "Fencing",
+    "Groundworks",
+    "Garden design",
+    "Garden maintenance",
+  ],
+};
+---
+
+<SiteLayout title={title} description={description} structuredData={[localBusinessJsonLd]}>
+  <Home />
+</SiteLayout>

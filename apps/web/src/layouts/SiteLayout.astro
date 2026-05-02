@@ -1,0 +1,282 @@
+---
+import logoUrl from "../imports/1864a6704a2ffa0192d2ce0eef648091.jpeg";
+import "../styles/index.css";
+import { company } from "@tpps/content";
+import { siteContent } from "../app/data/content";
+
+const currentYear = new Date().getFullYear();
+const navLinks = siteContent.navigation.links.map((link) => {
+  if (link.name === "Home") return { ...link, href: "/" };
+  if (link.href.startsWith("#")) return { ...link, href: `/${link.href}` };
+  return link;
+});
+
+interface Props {
+  title: string;
+  description: string;
+  canonicalPath?: string;
+  structuredData?: Record<string, unknown>[];
+}
+
+const {
+  title,
+  description,
+  canonicalPath = "/",
+  structuredData = [],
+} = Astro.props;
+const canonicalUrl = new URL(canonicalPath, Astro.site).toString();
+const phoneHref = `tel:${siteContent.contact.phone.replace(/\s+/g, "")}`;
+const emailHref = `mailto:${siteContent.contact.email}`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content={company.name} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <title>{title}</title>
+    {
+      structuredData.map((data) => (
+        <script type="application/ld+json" set:html={JSON.stringify(data)} />
+      ))
+    }
+  </head>
+  <body class="min-h-screen bg-stone-50 font-sans text-stone-900">
+    <header
+      id="site-header"
+      class="fixed left-0 right-0 top-0 z-50 bg-white py-5 transition-all duration-300"
+      data-site-header
+    >
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between">
+          <a href="/" class="flex shrink-0 items-center gap-2">
+            <img
+              src={logoUrl.src}
+              width={logoUrl.width}
+              height={logoUrl.height}
+              alt={`${siteContent.navigation.companyName} logo`}
+              class="h-10 w-auto object-contain sm:h-12"
+            />
+            <span class="sr-only">{siteContent.navigation.companyName}</span>
+          </a>
+
+          <nav class="hidden items-center gap-6 lg:flex xl:gap-8" aria-label="Primary">
+            {
+              navLinks.map((link) => (
+                <a
+                  href={link.href}
+                  class="text-sm font-medium text-stone-700 transition-colors hover:text-green-800"
+                >
+                  {link.name}
+                </a>
+              ))
+            }
+          </nav>
+
+          <div class="hidden items-center gap-4 lg:flex">
+            <a
+              href={phoneHref}
+              class="flex items-center gap-2 text-sm font-semibold text-stone-700 transition-colors hover:text-green-800"
+            >
+              <span aria-hidden="true">☎</span>
+              <span>{siteContent.navigation.ctaSecondary}</span>
+            </a>
+            <a
+              href="#contact"
+              class="rounded-md bg-green-800 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-green-900"
+            >
+              {siteContent.navigation.ctaPrimary}
+            </a>
+          </div>
+
+          <button
+            type="button"
+            class="p-2 text-stone-600 hover:text-stone-900 lg:hidden"
+            aria-label="Toggle menu"
+            aria-expanded="false"
+            aria-controls="mobile-nav"
+            data-menu-button
+          >
+            <span class="block text-2xl leading-none" data-menu-icon>☰</span>
+          </button>
+        </div>
+      </div>
+
+      <nav
+        id="mobile-nav"
+        class="absolute left-0 right-0 top-full hidden flex-col gap-4 border-t border-stone-100 bg-white px-4 py-4 shadow-lg lg:hidden"
+        aria-label="Mobile primary"
+        data-mobile-nav
+      >
+        {
+          navLinks.map((link) => (
+            <a
+              href={link.href}
+              class="block rounded-md px-4 py-2 font-medium text-stone-800 hover:bg-stone-50"
+            >
+              {link.name}
+            </a>
+          ))
+        }
+        <div class="flex flex-col gap-3 border-t border-stone-100 px-4 pt-4">
+          <a
+            href={phoneHref}
+            class="flex w-full items-center justify-center gap-2 rounded-md border border-stone-300 py-3 font-semibold text-stone-800"
+          >
+            <span aria-hidden="true">☎</span>
+            <span>{siteContent.navigation.ctaSecondary}</span>
+          </a>
+          <a
+            href="#contact"
+            class="flex w-full items-center justify-center rounded-md bg-green-800 py-3 font-semibold text-white"
+          >
+            {siteContent.navigation.ctaPrimary}
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="min-h-screen">
+      <slot />
+    </main>
+
+    <footer class="mt-auto bg-stone-900 py-16 text-stone-300">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
+          <div class="flex flex-col gap-6">
+            <a href="/" class="flex max-w-[200px] items-center gap-2">
+              <span class="rounded bg-white p-2">
+                <img
+                  src={logoUrl.src}
+                  width={logoUrl.width}
+                  height={logoUrl.height}
+                  alt={`${siteContent.navigation.companyName} logo`}
+                  class="h-10 w-auto"
+                />
+              </span>
+            </a>
+            <p class="text-sm leading-relaxed text-stone-400">
+              {siteContent.footer.companyDescription}
+            </p>
+          </div>
+
+          <div>
+            <h2 class="mb-6 font-semibold text-white">{siteContent.footer.quickLinksTitle}</h2>
+            <ul class="flex flex-col gap-3">
+              {
+                navLinks.map((link) => (
+                  <li>
+                    <a
+                      href={link.href}
+                      class="text-sm text-stone-400 transition-colors hover:text-green-500"
+                    >
+                      {link.name}
+                    </a>
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+
+          <div>
+            <h2 class="mb-6 font-semibold text-white">{siteContent.footer.areasTitle}</h2>
+            <ul class="flex flex-col gap-3">
+              {
+                siteContent.areas.locations.slice(0, 6).map((area) => (
+                  <li>
+                    <a
+                      href="#areas"
+                      class="text-sm text-stone-400 transition-colors hover:text-green-500"
+                    >
+                      {area}
+                    </a>
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+
+          <div>
+            <h2 class="mb-6 font-semibold text-white">{siteContent.footer.contactTitle}</h2>
+            <div class="flex flex-col gap-4">
+              <a href={phoneHref} class="group flex items-start gap-3">
+                <span class="mt-0.5 shrink-0 text-green-500 group-hover:text-green-400">☎</span>
+                <span>
+                  <span class="block font-medium text-white transition-colors group-hover:text-green-400">
+                    {siteContent.contact.phone}
+                  </span>
+                  <span class="block text-xs text-stone-400">{siteContent.footer.phoneLabel}</span>
+                </span>
+              </a>
+              <a href={emailHref} class="group flex items-start gap-3">
+                <span class="mt-0.5 shrink-0 text-green-500 group-hover:text-green-400">@</span>
+                <span class="text-sm text-stone-400 transition-colors group-hover:text-green-400">
+                  {siteContent.contact.email}
+                </span>
+              </a>
+              <div class="mt-2 flex items-start gap-3">
+                <span class="mt-0.5 shrink-0 text-green-500">⌖</span>
+                <span class="text-sm leading-relaxed text-stone-400">
+                  {siteContent.footer.locationText}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-16 border-t border-stone-800 pt-8">
+          <p class="text-sm text-stone-400">
+            &copy; {currentYear} {siteContent.footer.copyright}
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const header = document.querySelector("[data-site-header]");
+      const menuButton = document.querySelector("[data-menu-button]");
+      const menuIcon = document.querySelector("[data-menu-icon]");
+      const mobileNav = document.querySelector("[data-mobile-nav]");
+
+      const setHeaderState = () => {
+        if (!header) return;
+        header.classList.toggle("py-3", window.scrollY > 20);
+        header.classList.toggle("py-5", window.scrollY <= 20);
+        header.classList.toggle("shadow-sm", window.scrollY > 20);
+        header.classList.toggle("bg-white/95", window.scrollY > 20);
+        header.classList.toggle("backdrop-blur-md", window.scrollY > 20);
+      };
+
+      menuButton?.addEventListener("click", () => {
+        const isOpen = menuButton.getAttribute("aria-expanded") === "true";
+        menuButton.setAttribute("aria-expanded", String(!isOpen));
+        mobileNav?.classList.toggle("hidden", isOpen);
+        mobileNav?.classList.toggle("flex", !isOpen);
+        if (menuIcon) menuIcon.textContent = isOpen ? "☰" : "×";
+      });
+
+      mobileNav?.addEventListener("click", (event) => {
+        if (!(event.target instanceof HTMLAnchorElement)) return;
+        menuButton?.setAttribute("aria-expanded", "false");
+        mobileNav.classList.add("hidden");
+        mobileNav.classList.remove("flex");
+        if (menuIcon) menuIcon.textContent = "☰";
+      });
+
+      setHeaderState();
+      window.addEventListener("scroll", setHeaderState, { passive: true });
+    </script>
+  </body>
+</html>

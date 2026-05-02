@@ -3,7 +3,7 @@ module.exports = {
     collect: {
       startServerCommand: "pnpm preview --host 127.0.0.1 --port 4173",
       startServerReadyPattern: "Local:",
-      startServerReadyTimeout: 120000,
+      startServerReadyTimeout: 5000,
       url: ["http://127.0.0.1:4173/"],
       numberOfRuns: 3,
       settings: {
