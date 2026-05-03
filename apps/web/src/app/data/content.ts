@@ -45,6 +45,7 @@ export const siteContent = {
     heading: servicesCopy.heading,
     subtitle: servicesCopy.subtitle,
     items: serviceDisplayOrder.map((id) => ({
+      id,
       title: serviceCardCopy[id].heading,
       description: serviceCardCopy[id].short,
     })),

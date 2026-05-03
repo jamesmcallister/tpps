@@ -1,9 +1,9 @@
 module.exports = {
   ci: {
     collect: {
-      startServerCommand: "pnpm preview --host 127.0.0.1 --port 4173",
+      startServerCommand: "node ./scripts/lhci-preview.mjs",
       startServerReadyPattern: "Local:",
-      startServerReadyTimeout: 5000,
+      startServerReadyTimeout: 120000,
       url: ["http://127.0.0.1:4173/"],
       numberOfRuns: 3,
       settings: {

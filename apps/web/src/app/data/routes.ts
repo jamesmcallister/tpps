@@ -1,15 +1,18 @@
 import { services } from "@tpps/content";
 
+const serviceRouteOrder = [
+  "garden-design",
+  "patios-pathways",
+  "driveways",
+  "fencing",
+  "groundworks",
+  "garden-maintenance",
+];
+
 export const serviceRoutes = services
-  .filter((service) =>
-    [
-      "patios-pathways",
-      "driveways",
-      "fencing",
-      "groundworks",
-      "garden-design",
-      "garden-maintenance",
-    ].includes(service.id),
+  .filter((service) => serviceRouteOrder.includes(service.id))
+  .sort(
+    (first, second) => serviceRouteOrder.indexOf(first.id) - serviceRouteOrder.indexOf(second.id),
   )
   .map((service) => ({
     path: `/services/${service.id}/`,

@@ -1,5 +1,34 @@
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import { siteContent } from "../data/content";
+import { serviceRoutes } from "../data/routes";
+import heroImage from "../../assets/hero-landscaping.jpg";
+
+const phoneHref = `tel:${siteContent.contact.phone.replace(/\s+/g, "")}`;
+const serviceCardImages: Record<string, string> = {
+  "garden-design":
+    "https://images.unsplash.com/photo-1595387426256-cc153122a6f1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsYW5kc2NhcGUlMjBkZXNpZ258ZW58MXx8fHwxNzc2NjEzNDU1fDA&ixlib=rb-4.1.0&q=60&w=480&utm_source=figma&utm_medium=referral",
+  "patios-pathways":
+    "https://images.unsplash.com/photo-1603518147332-ba54b96276a3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzdG9uZSUyMHBhdGlvfGVufDF8fHx8MTc3NjYxMzQ1NXww&ixlib=rb-4.1.0&q=60&w=480&utm_source=figma&utm_medium=referral",
+  driveways:
+    "https://images.unsplash.com/photo-1770446722312-0fcf39b62900?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHxicmljayUyMGRyaXZld2F5fGVufDF8fHx8MTc3NjYxMzQ1NXww&ixlib=rb-4.1.0&q=60&w=480&utm_source=figma&utm_medium=referral",
+  fencing:
+    "https://images.unsplash.com/photo-1763909129965-67e92392f861?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHx3b29kZW4lMjBnYXJkZW4lMjBmZW5jZXxlbnwxfHx8fDE3NzY2MDYyMjF8MA&ixlib=rb-4.1.0&q=60&w=480&utm_source=figma&utm_medium=referral",
+  groundworks:
+    "https://images.unsplash.com/photo-1759579471642-8295d40db07c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHxncm91bmR3b3JrJTIwY29uc3RydWN0aW9uJTIwZGlnZ2VyfGVufDF8fHx8MTc3NjYxMzQ1Nnww&ixlib=rb-4.1.0&q=60&w=480&utm_source=figma&utm_medium=referral",
+  "garden-maintenance":
+    "https://images.unsplash.com/photo-1683316924890-6a8c5ab10d29?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHxnYXJkZW4lMjBtYWludGVuYW5jZXxlbnwxfHx8fDE3NzY2MTM0NTh8MA&ixlib=rb-4.1.0&q=60&w=480&utm_source=figma&utm_medium=referral",
+};
+
+const serviceCards = serviceRoutes.map(({ path, service }) => {
+  const copy = siteContent.services.items.find((item) => item.id === service.id);
+
+  return {
+    title: copy?.title ?? service.name,
+    desc: copy?.description ?? service.description,
+    href: path,
+    img: serviceCardImages[service.id],
+  };
+});
 
 export function Home() {
   return (
@@ -7,9 +36,13 @@ export function Home() {
       {/* Hero Section */}
       <section id="hero" className="relative min-h-[90vh] flex items-center pt-20">
         <div className="absolute inset-0 z-0">
-          <ImageWithFallback
-            src="https://images.unsplash.com/photo-1761637823276-7d714eb45cb1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiZWF1dGlmdWwlMjBnYXJkZW4lMjBwYXRpb3xlbnwxfHx8fDE3NzY2MTM0NTR8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+          <img
+            src={heroImage.src}
+            width={heroImage.width}
+            height={heroImage.height}
             alt="Beautiful garden patio"
+            fetchPriority="high"
+            decoding="async"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-stone-900/60 mix-blend-multiply"></div>
@@ -31,7 +64,7 @@ export function Home() {
                 {siteContent.hero.ctaPrimary}
               </a>
               <a
-                href={`tel:${siteContent.contact.phone}`}
+                href={phoneHref}
                 className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 text-white px-8 py-4 rounded-md font-semibold text-lg transition-colors shadow-lg text-center flex items-center justify-center gap-2"
               >
                 {siteContent.hero.ctaSecondary}
@@ -77,8 +110,10 @@ export function Home() {
             </div>
             <div className="relative h-[600px] rounded-2xl overflow-hidden shadow-2xl">
               <ImageWithFallback
-                src="https://images.unsplash.com/photo-1758524051476-cf120cb3f1e3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBsYW5kc2NhcGVyJTIwd29ya2luZ3xlbnwxfHx8fDE3NzY2MTM0NTV8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                src="https://images.unsplash.com/photo-1758524051476-cf120cb3f1e3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBsYW5kc2NhcGVyJTIwd29ya2luZ3xlbnwxfHx8fDE3NzY2MTM0NTV8MA&ixlib=rb-4.1.0&q=60&w=480&utm_source=figma&utm_medium=referral"
                 alt="Professional landscaper working"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-stone-900/40 to-transparent"></div>
@@ -121,44 +156,7 @@ export function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                title: siteContent.services.items[0].title,
-                desc: siteContent.services.items[0].description,
-                href: "/services/garden-design/",
-                img: "https://images.unsplash.com/photo-1595387426256-cc153122a6f1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsYW5kc2NhcGUlMjBkZXNpZ258ZW58MXx8fHwxNzc2NjEzNDU1fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-              },
-              {
-                title: siteContent.services.items[1].title,
-                desc: siteContent.services.items[1].description,
-                href: "/services/patios-pathways/",
-                img: "https://images.unsplash.com/photo-1603518147332-ba54b96276a3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzdG9uZSUyMHBhdGlvfGVufDF8fHx8MTc3NjYxMzQ1NXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-              },
-              {
-                title: siteContent.services.items[2].title,
-                desc: siteContent.services.items[2].description,
-                href: "/services/driveways/",
-                img: "https://images.unsplash.com/photo-1770446722312-0fcf39b62900?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxicmljayUyMGRyaXZld2F5fGVufDF8fHx8MTc3NjYxMzQ1NXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-              },
-              {
-                title: siteContent.services.items[3].title,
-                desc: siteContent.services.items[3].description,
-                href: "/services/fencing/",
-                img: "https://images.unsplash.com/photo-1763909129965-67e92392f861?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3b29kZW4lMjBnYXJkZW4lMjBmZW5jZXxlbnwxfHx8fDE3NzY2MDYyMjF8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-              },
-              {
-                title: siteContent.services.items[4].title,
-                desc: siteContent.services.items[4].description,
-                href: "/services/groundworks/",
-                img: "https://images.unsplash.com/photo-1759579471642-8295d40db07c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxncm91bmR3b3JrJTIwY29uc3RydWN0aW9uJTIwZGlnZ2VyfGVufDF8fHx8MTc3NjYxMzQ1Nnww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-              },
-              {
-                title: siteContent.services.items[5].title,
-                desc: siteContent.services.items[5].description,
-                href: "/services/garden-maintenance/",
-                img: "https://images.unsplash.com/photo-1683316924890-6a8c5ab10d29?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxnYXJkZW4lMjBtYWludGVuYW5jZXxlbnwxfHx8fDE3NzY2MTM0NTh8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-              },
-            ].map((service, index) => (
+            {serviceCards.map((service, index) => (
               <a
                 key={index}
                 href={service.href}
@@ -169,6 +167,8 @@ export function Home() {
                   <ImageWithFallback
                     src={service.img}
                     alt={service.title}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
@@ -243,8 +243,10 @@ export function Home() {
             {/* Featured Project */}
             <div className="bg-stone-900 rounded-3xl overflow-hidden relative shadow-2xl">
               <ImageWithFallback
-                src="https://images.unsplash.com/photo-1704457030855-9d7e726e48a1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBnYXJkZW4lMjBkZXNpZ24lMjBmaW5pc2hlZHxlbnwxfHx8fDE3NzY2MTM0NTh8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                src="https://images.unsplash.com/photo-1704457030855-9d7e726e48a1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBnYXJkZW4lMjBkZXNpZ24lMjBmaW5pc2hlZHxlbnwxfHx8fDE3NzY2MTM0NTh8MA&ixlib=rb-4.1.0&q=60&w=480&utm_source=figma&utm_medium=referral"
                 alt="Outdoor Spaces Built to Last"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover opacity-60 mix-blend-overlay absolute inset-0"
               />
               <div className="relative z-10 p-10 md:p-14 h-full flex flex-col justify-end min-h-[500px] bg-gradient-to-t from-stone-900 via-stone-900/40 to-transparent">
@@ -402,9 +404,11 @@ export function Home() {
       <section id="contact" className="py-24 bg-green-900 relative overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-10">
           <ImageWithFallback
-            src="https://images.unsplash.com/photo-1761637823276-7d714eb45cb1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiZWF1dGlmdWwlMjBnYXJkZW4lMjBwYXRpb3xlbnwxfHx8fDE3NzY2MTM0NTR8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+            src="https://images.unsplash.com/photo-1761637823276-7d714eb45cb1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiZWF1dGlmdWwlMjBnYXJkZW4lMjBwYXRpb3xlbnwxfHx8fDE3NzY2MTM0NTR8MA&ixlib=rb-4.1.0&q=60&w=480&utm_source=figma&utm_medium=referral"
             alt=""
             aria-hidden="true"
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover grayscale"
           />
         </div>
@@ -424,7 +428,7 @@ export function Home() {
               {siteContent.cta.primaryButton}
             </a>
             <a
-              href={`tel:${siteContent.contact.phone}`}
+              href={phoneHref}
               className="bg-green-800 hover:bg-green-700 border border-green-700 text-white px-8 py-4 rounded-md font-bold text-lg transition-colors shadow-lg text-center flex items-center justify-center gap-2"
             >
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
