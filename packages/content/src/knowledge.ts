@@ -27,26 +27,23 @@ export const companyKnowledge = {
     "People needing groundworks, driveways, or patios",
   ],
   confirmedCurrentCapabilities: services.filter((s) => s.live).map((s) => s.name),
-  inProgressCapabilities: ["Project timelines depend on site surveys and material availability."],
+  inProgressCapabilities: ["Project timelines depend on site visits and material availability."],
   currentOperatingModelNotes: [
     pricingPolicy.surveyPolicy,
     pricingPolicy.quoteTimeline,
     ...(company.credentials.licensed && company.credentials.insured
       ? ["Fully licensed and insured."]
       : []),
-    `Local to ${company.location.area} with ${company.credentials.yearsExperience}+ years' experience.`,
+    `Local to ${company.location.area}.`,
   ],
-  plannedOrExploratoryIdeas: [
-    "Larger commercial groundworks",
-    "Ongoing seasonal maintenance plans",
-  ],
+  plannedOrExploratoryIdeas: [],
   pricing: {
-    status: "known" as const,
+    status: pricingPolicy.status,
     notes: pricingPolicy.notes,
   },
   rules: {
     mustNotClaim: [
-      "Fixed prices before a site survey",
+      "Fixed prices before a site visit",
       "Guaranteed start dates before quote approval",
       "Services outside of landscaping and groundworks without checking",
     ],
@@ -65,11 +62,11 @@ export const helloKnowledge = {
   currentOperatingModelNotes: companyKnowledge.currentOperatingModelNotes,
   plannedOrExploratoryIdeas: companyKnowledge.plannedOrExploratoryIdeas,
   contactDetails: {
-    phone: company.contact.phone,
+    ...(company.contact.phone ? { phone: company.contact.phone } : {}),
     email: company.contact.email,
     serviceArea: company.location.area,
   },
-  pricingGuideSections: services
+  pricingGuideSections: (pricingPolicy.status === "known" ? services : [])
     .filter((s) => s.live && s.pricing)
     .map((s) => {
       const pricing = Array.isArray(s.pricing) ? s.pricing : [s.pricing!];
@@ -95,7 +92,7 @@ export const helloKnowledge = {
       "What is your rough timeline or urgency?",
     ],
     credentials: [...trustPoints],
-    commonProjects: ["Typical residential projects range £2,000-£8,000 (all-in, inc. VAT)."],
+    commonProjects: [],
   },
   followUpGuidance: {
     principles: [
@@ -115,7 +112,7 @@ export const helloKnowledge = {
     avoidPhrases: communicationRules.neverDo,
   },
   pricing: {
-    status: "known" as const,
+    status: pricingPolicy.status,
     notes: pricingPolicy.notes,
   },
   rules: {
