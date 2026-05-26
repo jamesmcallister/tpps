@@ -1,6 +1,6 @@
 /**
- * TPPS Landscapes — Services and pricing guide.
- * All prices are rough estimates. Accurate quotes require a free site survey.
+ * TPPS Landscapes — Services and quote guidance.
+ * Public pricing should only be added once the owner confirms the ranges.
  */
 
 export type PriceRange = {
@@ -24,104 +24,73 @@ export const services: Service[] = [
     id: "patios-pathways",
     name: "Patios & Pathways",
     description:
-      "Professional installation of porcelain, natural stone (Indian Sandstone), block paving, and gravel patios and pathways.",
+      "Patio and pathway installation with proper ground preparation, drainage consideration, and a tidy finish.",
     live: true,
-    pricing: [
-      { min: 45, max: 65, unit: "per m²", notes: "Porcelain / Natural Stone" },
-      { min: 35, max: 50, unit: "per m²", notes: "Indian Sandstone" },
-      { min: 30, max: 45, unit: "per m²", notes: "Block Paving" },
-      { min: 15, max: 25, unit: "per m²", notes: "Gravel Pathways" },
-    ],
     tags: ["patios", "pathways", "porcelain", "stone", "block paving", "gravel"],
   },
   {
     id: "driveways",
-    name: "Driveway Installation",
+    name: "Driveways",
     description:
-      "Driveway installation using resin-bound, tarmac, block paving, or gravel finishes.",
+      "Driveway preparation and installation for practical, hard-wearing entrances and parking areas.",
     live: true,
-    pricing: [
-      { min: 40, max: 60, unit: "per m²", notes: "Block Paving" },
-      { min: 25, max: 40, unit: "per m²", notes: "Tarmac" },
-      { min: 50, max: 75, unit: "per m²", notes: "Resin-Bound" },
-      { min: 12, max: 20, unit: "per m²", notes: "Gravel" },
-    ],
     tags: ["driveways", "block paving", "tarmac", "resin", "gravel"],
   },
   {
     id: "fencing",
     name: "Fencing",
-    description: "Supply and installation of closeboard, ranch-style, and privacy fencing.",
+    description:
+      "Fence supply, replacement, and installation for garden boundaries, privacy, and security.",
     live: true,
-    pricing: [
-      { min: 80, max: 120, unit: "per linear meter", notes: "Closeboard panels" },
-      { min: 60, max: 90, unit: "per linear meter", notes: "Ranch-style" },
-      { min: 100, max: 150, unit: "per linear meter", notes: "Privacy fence upgrades" },
-    ],
     tags: ["fencing", "closeboard", "privacy", "panels"],
   },
   {
     id: "garden-design",
-    name: "Garden Design & Planning",
-    description: "Consultations, concept sketches, and full 3D garden design packages.",
+    name: "Landscaping & Garden Design",
+    description:
+      "Practical garden layouts, planting structure, levels, paths, patios, and hard landscaping plans.",
     live: true,
-    pricing: [
-      { min: 150, max: 300, unit: "fixed", notes: "Consultation & basic sketch" },
-      { min: 500, max: 1200, unit: "fixed", notes: "Full design package" },
-    ],
-    tags: ["garden design", "planning", "consultation", "3D"],
+    tags: ["garden design", "planning", "landscaping", "layout"],
   },
   {
     id: "groundworks",
-    name: "Groundworks",
-    description: "Excavation, levelling, sub-base preparation, and site clearance.",
+    name: "Groundworks & Drainage",
+    description:
+      "Excavation, levelling, sub-base preparation, drainage improvements, and site preparation.",
     live: true,
-    pricing: [
-      {
-        min: 800,
-        max: 1500,
-        unit: "project",
-        notes: "Small-mid excavation / clearance",
-      },
-      { min: 30, max: 50, unit: "per m²", notes: "Levelling" },
-    ],
     tags: ["groundworks", "excavation", "levelling", "clearance"],
   },
   {
     id: "tree-removal",
-    name: "Tree Removal & Site Clearance",
-    description: "Safe removal of trees and vegetation, including stump grinding.",
+    name: "Tree & Site Clearance",
+    description:
+      "Practical clearance of overgrown areas, vegetation, small trees, and garden waste.",
     live: true,
-    pricing: [
-      { min: 200, max: 600, unit: "per tree", notes: "Single tree removal" },
-      { min: 100, max: 300, unit: "per stump", notes: "Stump grinding" },
-    ],
     tags: ["tree removal", "stump", "clearance"],
   },
   {
     id: "garden-maintenance",
     name: "Garden Renovation & Maintenance",
-    description: "Ongoing maintenance, seasonal tidy-ups, and full garden renovation projects.",
+    description:
+      "Garden tidy-ups, improvements, and renovation work to make outdoor spaces easier to use.",
     live: true,
     tags: ["maintenance", "renovation", "tidy"],
   },
 ];
 
 export const pricingPolicy = {
-  status: "estimates_available" as const,
+  status: "unknown" as "known" | "unknown",
   notes: [
-    "Prices are rough estimates and vary based on accessibility, materials, and ground prep.",
-    "All quotes include professional site survey, written estimate, site prep, waste removal, and 20% VAT.",
-    "Typical residential projects range £2,000-£8,000.",
+    "Project costs depend on access, materials, drainage, ground preparation, and waste removal.",
+    "Written quotations confirm the agreed scope, preparation, materials, waste handling, and timescales.",
+    "Any tax treatment or additional costs should be confirmed in the written quotation.",
   ],
   quoteProcess:
-    "We provide rough estimates over email based on our pricing guide. For accurate quotes, we schedule a free site survey.",
-  surveyPolicy: "Free site surveys are provided to confirm exact requirements.",
-  quoteTimeline: "Detailed written quotations are provided within 2 working days after a survey.",
+    "We start with a short enquiry, then confirm the details needed to prepare a clear written quotation.",
+  surveyPolicy:
+    "Free quotations are available. A site visit may be needed to confirm access, measurements, drainage, materials, and preparation.",
+  quoteTimeline:
+    "Written quotations are provided once the scope, materials, and site details are clear.",
 };
 
-export const roadmapServices = [
-  "Complex multi-trade full garden overhauls",
-  "Larger commercial groundworks",
-  "Ongoing seasonal maintenance plans",
-];
+export const futureServiceConsiderations: string[] = [];

@@ -11,16 +11,11 @@ export function getStaticPaths() {
 }
 
 const { service } = Astro.props;
-const title = `${service.name} in Thanet & East Kent | ${company.shortName}`;
-const description = `${service.description} Get a free ${service.name.toLowerCase()} quote from ${company.name}, serving Broadstairs, Ramsgate, Margate, and East Kent.`;
+const title = `${service.name} across Thanet & East Kent | ${company.shortName}`;
+const description = `${service.description} ${company.shortName} covers Thanet and East Kent, including Canterbury, Dover, Folkestone, Hythe, Whitstable, Herne Bay, Sandwich and Deal.`;
 const canonicalPath = `/services/${service.id}/`;
 const relatedServices = serviceRoutes.filter(({ service: item }) => item.id !== service.id).slice(0, 3);
 const tags = service.tags ?? [];
-const pricing = Array.isArray(service.pricing)
-  ? service.pricing
-  : service.pricing
-    ? [service.pricing]
-    : [];
 
 const serviceJsonLd = {
   "@context": "https://schema.org",
@@ -30,7 +25,7 @@ const serviceJsonLd = {
   provider: {
     "@type": "LocalBusiness",
     name: company.name,
-    telephone: company.contact.phone,
+    ...(company.contact.phone ? { telephone: company.contact.phone } : {}),
     email: company.contact.email,
     url: "https://www.tppslandscapes.co.uk/",
   },
@@ -64,8 +59,8 @@ const breadcrumbJsonLd = {
   canonicalPath={canonicalPath}
   structuredData={[serviceJsonLd, breadcrumbJsonLd]}
 >
-  <article class="bg-white pt-32">
-    <header class="border-b border-stone-200 bg-stone-50 py-20">
+  <article class="bg-white pt-24">
+    <header class="border-b border-stone-200 bg-stone-50 py-16">
       <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <nav class="mb-8 text-sm text-stone-500" aria-label="Breadcrumb">
           <a href="/" class="hover:text-green-800">Home</a>
@@ -73,7 +68,7 @@ const breadcrumbJsonLd = {
           <span>{service.name}</span>
         </nav>
         <h1 class="mb-6 text-4xl font-bold leading-tight text-stone-900 md:text-5xl">
-          {service.name} in Thanet and East Kent
+          {service.name} across Thanet and East Kent
         </h1>
         <p class="max-w-3xl text-lg leading-relaxed text-stone-600 md:text-xl">
           {service.description}
@@ -85,12 +80,23 @@ const breadcrumbJsonLd = {
           >
             Request a free quote
           </a>
-          <a
-            href={`tel:${company.contact.phone.replace(/\s+/g, "")}`}
-            class="rounded-md border border-stone-300 px-6 py-3 text-center font-semibold text-stone-800 hover:border-green-800 hover:text-green-800"
-          >
-            Call {company.contact.phone}
-          </a>
+          {
+            company.contact.phone ? (
+              <a
+                href={`tel:${company.contact.phone.replace(/\s+/g, "")}`}
+                class="rounded-md border border-stone-300 px-6 py-3 text-center font-semibold text-stone-800 hover:border-green-800 hover:text-green-800"
+              >
+                Call {company.contact.phone}
+              </a>
+            ) : (
+              <a
+                href="/#services"
+                class="rounded-md border border-stone-300 px-6 py-3 text-center font-semibold text-stone-800 hover:border-green-800 hover:text-green-800"
+              >
+                View services
+              </a>
+            )
+          }
         </div>
       </div>
     </header>
@@ -101,7 +107,7 @@ const breadcrumbJsonLd = {
           <h2 class="mb-4 text-2xl font-bold text-stone-900">What We Cover</h2>
           <p class="text-lg leading-relaxed text-stone-600">
             We plan the work around your property, access, drainage, ground conditions, and the
-            finish you want. Every quote is confirmed after a site survey so materials, preparation,
+            finish you want. Every quote is confirmed after a site visit so materials, preparation,
             waste removal, and timescales are clear before work begins.
           </p>
           {
@@ -117,35 +123,6 @@ const breadcrumbJsonLd = {
           }
         </section>
 
-        {
-          pricing.length > 0 && (
-            <section>
-              <h2 class="mb-4 text-2xl font-bold text-stone-900">Guide Pricing</h2>
-              <div class="overflow-hidden rounded-lg border border-stone-200">
-                <table class="w-full text-left text-sm">
-                  <thead class="bg-stone-50 text-stone-700">
-                    <tr>
-                      <th class="px-4 py-3 font-semibold">Option</th>
-                      <th class="px-4 py-3 font-semibold">Typical Range</th>
-                    </tr>
-                  </thead>
-                  <tbody class="divide-y divide-stone-200">
-                    {pricing.map((item) => (
-                      <tr>
-                        <td class="px-4 py-3 text-stone-700">{item.notes ?? service.name}</td>
-                        <td class="px-4 py-3 text-stone-700">
-                          £{item.min.toLocaleString()}-£{item.max.toLocaleString()} {item.unit}
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-              <p class="mt-4 text-sm text-stone-500">{pricingPolicy.notes[0]}</p>
-            </section>
-          )
-        }
-
         <section>
           <h2 class="mb-4 text-2xl font-bold text-stone-900">Areas Served</h2>
           <p class="text-lg leading-relaxed text-stone-600">
@@ -158,15 +135,15 @@ const breadcrumbJsonLd = {
           <h2 class="mb-4 text-2xl font-bold text-stone-900">Common Questions</h2>
           <div class="space-y-5">
             <div>
-              <h3 class="font-semibold text-stone-900">Do you provide free site surveys?</h3>
+              <h3 class="font-semibold text-stone-900">Do you provide free quotes?</h3>
               <p class="mt-1 text-stone-600">{pricingPolicy.surveyPolicy}</p>
             </div>
             <div>
-              <h3 class="font-semibold text-stone-900">When will I receive a written quote?</h3>
+              <h3 class="font-semibold text-stone-900">How do quotes work?</h3>
               <p class="mt-1 text-stone-600">{pricingPolicy.quoteTimeline}</p>
             </div>
             <div>
-              <h3 class="font-semibold text-stone-900">Is waste removal included?</h3>
+              <h3 class="font-semibold text-stone-900">What affects the cost?</h3>
               <p class="mt-1 text-stone-600">{pricingPolicy.notes[1]}</p>
             </div>
           </div>

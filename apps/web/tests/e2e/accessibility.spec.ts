@@ -10,6 +10,7 @@ test.describe("accessibility", () => {
     "/services/groundworks/",
     "/services/garden-design/",
     "/services/garden-maintenance/",
+    "/services/tree-removal/",
   ];
 
   for (const route of routes) {

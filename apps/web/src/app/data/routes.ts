@@ -7,6 +7,7 @@ const serviceRouteOrder = [
   "fencing",
   "groundworks",
   "garden-maintenance",
+  "tree-removal",
 ];
 
 export const serviceRoutes = services

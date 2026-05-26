@@ -3,7 +3,9 @@ import { siteContent } from "../data/content";
 import { serviceRoutes } from "../data/routes";
 import heroImage from "../../assets/hero-landscaping.jpg";
 
-const phoneHref = `tel:${siteContent.contact.phone.replace(/\s+/g, "")}`;
+const phoneHref = siteContent.contact.phone
+  ? `tel:${siteContent.contact.phone.replace(/\s+/g, "")}`
+  : undefined;
 const serviceCardImages: Record<string, string> = {
   "garden-design":
     "https://images.unsplash.com/photo-1595387426256-cc153122a6f1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsYW5kc2NhcGUlMjBkZXNpZ258ZW58MXx8fHwxNzc2NjEzNDU1fDA&ixlib=rb-4.1.0&q=60&w=480&utm_source=figma&utm_medium=referral",
@@ -17,6 +19,8 @@ const serviceCardImages: Record<string, string> = {
     "https://images.unsplash.com/photo-1759579471642-8295d40db07c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHxncm91bmR3b3JrJTIwY29uc3RydWN0aW9uJTIwZGlnZ2VyfGVufDF8fHx8MTc3NjYxMzQ1Nnww&ixlib=rb-4.1.0&q=60&w=480&utm_source=figma&utm_medium=referral",
   "garden-maintenance":
     "https://images.unsplash.com/photo-1683316924890-6a8c5ab10d29?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHxnYXJkZW4lMjBtYWludGVuYW5jZXxlbnwxfHx8fDE3NzY2MTM0NTh8MA&ixlib=rb-4.1.0&q=60&w=480&utm_source=figma&utm_medium=referral",
+  "tree-removal":
+    "https://images.unsplash.com/photo-1590247813693-5541d1c609fd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=60&w=480",
 };
 
 const serviceCards = serviceRoutes.map(({ path, service }) => {
@@ -64,7 +68,7 @@ export function Home() {
                 {siteContent.hero.ctaPrimary}
               </a>
               <a
-                href={phoneHref}
+                href={phoneHref ?? "#services"}
                 className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 text-white px-8 py-4 rounded-md font-semibold text-lg transition-colors shadow-lg text-center flex items-center justify-center gap-2"
               >
                 {siteContent.hero.ctaSecondary}
@@ -136,8 +140,8 @@ export function Home() {
                   </svg>
                 </div>
                 <div>
-                  <div className="font-bold text-stone-900 text-xl">100%</div>
-                  <div className="text-stone-500 text-sm font-medium">Satisfaction Focus</div>
+                  <div className="font-bold text-stone-900 text-xl">Clear</div>
+                  <div className="text-stone-500 text-sm font-medium">Written estimates</div>
                 </div>
               </div>
             </div>
@@ -240,11 +244,11 @@ export function Home() {
               </div>
             </div>
 
-            {/* Featured Project */}
+            {/* Project approach */}
             <div className="bg-stone-900 rounded-3xl overflow-hidden relative shadow-2xl">
               <ImageWithFallback
                 src="https://images.unsplash.com/photo-1704457030855-9d7e726e48a1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBnYXJkZW4lMjBkZXNpZ24lMjBmaW5pc2hlZHxlbnwxfHx8fDE3NzY2MTM0NTh8MA&ixlib=rb-4.1.0&q=60&w=480&utm_source=figma&utm_medium=referral"
-                alt="Outdoor Spaces Built to Last"
+                alt="Finished garden landscaping"
                 loading="lazy"
                 decoding="async"
                 className="w-full h-full object-cover opacity-60 mix-blend-overlay absolute inset-0"
@@ -260,7 +264,7 @@ export function Home() {
                   {siteContent.whyChoose.featuredProject.description}
                 </p>
                 <a
-                  href="#gallery"
+                  href="#work"
                   className="inline-flex items-center gap-2 bg-white text-stone-900 px-6 py-3 rounded-md font-semibold hover:bg-stone-100 transition-colors w-fit"
                 >
                   {siteContent.whyChoose.featuredProject.ctaText}
@@ -298,9 +302,11 @@ export function Home() {
               <h2 className="text-3xl md:text-4xl font-bold text-stone-900 mb-6">
                 {siteContent.areas.heading}
               </h2>
-              <p className="text-lg text-stone-600 mb-10 max-w-2xl mx-auto leading-relaxed">
-                {siteContent.areas.description}
-              </p>
+              <div className="text-lg text-stone-600 mb-10 max-w-2xl mx-auto leading-relaxed space-y-4">
+                {siteContent.areas.description.split("\n\n").map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </div>
 
               <div className="flex flex-wrap justify-center gap-3">
                 {siteContent.areas.locations.map((area, idx) => (
@@ -311,65 +317,28 @@ export function Home() {
                     {area}
                   </span>
                 ))}
-                <span className="px-5 py-2.5 bg-stone-50 border border-stone-200 border-dashed rounded-full text-stone-500 font-medium text-sm italic">
-                  {siteContent.areas.additionalText}
-                </span>
+                {siteContent.areas.additionalText && (
+                  <span className="px-5 py-2.5 bg-stone-50 border border-stone-200 border-dashed rounded-full text-stone-500 font-medium text-sm italic">
+                    {siteContent.areas.additionalText}
+                  </span>
+                )}
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-stone-900 mb-6">
-              {siteContent.testimonials.heading}
-            </h2>
-            <p className="text-lg text-stone-600">{siteContent.testimonials.subtitle}</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {siteContent.testimonials.reviews.map((testimonial, idx) => (
-              <div key={idx} className="bg-stone-50 p-8 rounded-2xl relative">
-                <svg
-                  className="w-10 h-10 text-stone-200 absolute top-6 right-6"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                </svg>
-                <div className="flex gap-1 text-yellow-400 mb-6">
-                  {[...Array(5)].map((_, i) => (
-                    <svg key={i} className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
-                </div>
-                <p className="text-stone-700 italic mb-8 relative z-10">"{testimonial.text}"</p>
-                <div>
-                  <div className="font-bold text-stone-900">{testimonial.author}</div>
-                  <div className="text-sm text-stone-500">{testimonial.location}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Gallery / Project Preview */}
-      <section id="gallery" className="py-24 bg-white">
+      {/* Work Types */}
+      <section id="work" className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-[0.85fr_1.15fr] gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-stone-900 mb-6">
-                Recent landscaping work across Thanet
+                Landscaping work across Thanet and East Kent
               </h2>
               <p className="text-lg text-stone-600 leading-relaxed mb-8">
-                A dedicated project gallery is planned for full case studies. For now, this section
-                gives the gallery navigation a real destination and keeps project-led enquiries
-                moving toward a quote conversation.
+                Most projects start with a practical conversation about the space, access, levels,
+                drainage and the finish you want. These are the types of work we can help with now.
               </p>
               <a
                 href="#contact"
@@ -381,9 +350,9 @@ export function Home() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {[
                 "Patio and pathway installations",
-                "Driveway preparation and finishing",
+                "Driveway preparation and installation",
                 "Garden design and planting structure",
-                "Fencing, groundworks, and maintenance",
+                "Fencing, drainage and site clearance",
               ].map((item) => (
                 <div
                   key={item}
@@ -391,7 +360,7 @@ export function Home() {
                 >
                   <h3 className="font-bold text-stone-900 mb-2">{item}</h3>
                   <p className="text-sm text-stone-600">
-                    Available across Broadstairs, Ramsgate, Margate, and the wider East Kent area.
+                    Available across Thanet and the wider East Kent area.
                   </p>
                 </div>
               ))}
@@ -428,17 +397,21 @@ export function Home() {
               {siteContent.cta.primaryButton}
             </a>
             <a
-              href={phoneHref}
+              href={phoneHref ?? "#services"}
               className="bg-green-800 hover:bg-green-700 border border-green-700 text-white px-8 py-4 rounded-md font-bold text-lg transition-colors shadow-lg text-center flex items-center justify-center gap-2"
             >
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                />
-              </svg>
+              {phoneHref ? (
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                  />
+                </svg>
+              ) : (
+                <span aria-hidden="true">&rarr;</span>
+              )}
               {siteContent.cta.secondaryButton}
             </a>
           </div>

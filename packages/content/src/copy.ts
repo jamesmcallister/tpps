@@ -14,29 +14,31 @@ import { company } from "./company";
 // ---------------------------------------------------------------------------
 
 const primaryTowns = company.location.towns.slice(0, 3);
-const townListWithAnd =
-  primaryTowns.slice(0, -1).join(", ") + " and " + primaryTowns[primaryTowns.length - 1];
+const formatList = (items: readonly string[]) =>
+  items.length <= 1
+    ? (items[0] ?? "")
+    : `${items.slice(0, -1).join(", ")} and ${items[items.length - 1]}`;
+const thanetTownList = formatList(primaryTowns);
 
 export const areasWeCover = {
-  heading: `Proudly Serving ${company.location.area}`,
+  heading: "Working across Thanet and East Kent",
   primary: primaryTowns,
   all: company.location.towns,
   description: company.location.area,
-  fullSentence: `Covering ${townListWithAnd} and the surrounding areas.`,
-  marketingDescription: `Covering ${townListWithAnd} and the surrounding areas. If you're looking for a reliable local team for patios, driveways, fencing, or garden transformations, ${company.shortName} is here to help.`,
-  additionalText: "Other nearby areas on request",
+  fullSentence: `Covering ${thanetTownList}, wider Thanet, and towns across East Kent.`,
+  marketingDescription:
+    "We're based in Thanet and take on garden, driveway and outdoor work across East Kent, from the main coastal towns to the smaller villages nearby.",
+  additionalText: "",
 };
 
 // ---------------------------------------------------------------------------
 // Hero section
 // ---------------------------------------------------------------------------
-// Hero section
-// ---------------------------------------------------------------------------
 
 export const hero = {
-  eyebrow: "Thanet's Local Landscaping Company",
+  eyebrow: "Local East Kent Landscaping",
   companyName: company.name,
-  tagline: "Landscaping, patios, driveways and groundworks across Thanet",
+  tagline: "Landscaping, patios, driveways and groundworks across Thanet and East Kent",
 
   /**
    * Three alternative hero intros — pick one per design/variant.
@@ -46,27 +48,27 @@ export const hero = {
    */
   options: {
     option1: {
-      heading: "Thanet's trusted local landscaping team",
-      body: `From patios and driveways to fencing, groundworks and complete garden makeovers, ${company.name} helps homeowners across ${townListWithAnd} and surrounding areas create outdoor spaces they can enjoy all year round.`,
-      cta: "Get in touch today for a free quote and site visit.",
+      heading: "Trusted landscaping and groundworks across East Kent",
+      body: `From patios and driveways to fencing, drainage and garden renovations, ${company.name} helps homeowners across Thanet and East Kent improve outdoor spaces with practical, careful workmanship.`,
+      cta: "Request a free quote.",
     },
     option2: {
-      heading: "Landscaping, driveways and groundworks across Thanet",
-      body: `${company.name} provides reliable landscaping and groundwork services for homeowners across ${townListWithAnd} and nearby areas. We combine careful preparation, quality materials and skilled workmanship to deliver outdoor spaces that are practical, attractive and built to last.`,
-      cta: "Contact us today to arrange your free quotation.",
+      heading: "Local landscaping specialists covering Thanet and East Kent",
+      body: `${company.name} provides landscaping and groundwork services for homeowners across Thanet and nearby East Kent towns. We focus on careful preparation, practical advice and a finish that suits the property.`,
+      cta: "Contact us to arrange a quote.",
     },
     option3: {
       heading: "Let's make more of your outdoor space",
-      body: `Whether you want a new patio for summer evenings, a driveway that looks smart and lasts, or a complete garden transformation, ${company.name} is here to help. We are a local Thanet team offering friendly advice, reliable workmanship and high-quality landscaping services across ${townListWithAnd} and the surrounding areas.`,
-      cta: "Book your free quote today.",
+      body: `Whether you want a new patio, a better driveway, improved drainage or a garden that is easier to use, ${company.name} offers friendly advice and practical landscaping support across Thanet and East Kent.`,
+      cta: "Tell us about your project.",
     },
   },
 
   /** Default / currently used hero intro */
   intro: {
-    heading: "Thanet's trusted local landscaping team",
-    body: `${company.name} is a local landscaping and groundworks company covering ${townListWithAnd} and the surrounding areas. Whether you are planning a new patio, driveway, garden redesign or outdoor renovation, our experienced team is here to help from start to finish. We take care of the groundwork, preparation and finishing touches, making sure every job is completed properly, safely and with care.`,
-    cta: "Call today for a free quote and site visit.",
+    heading: "Trusted landscaping and groundworks across East Kent",
+    body: `${company.name} is a local landscaping and groundworks company with Thanet roots, covering homes and local properties across East Kent. We help with patios, driveways, fencing, drainage, garden renovations and site preparation, with clear advice before work starts and careful attention to the finish.`,
+    cta: "Request a free quote.",
   },
 };
 
@@ -76,13 +78,12 @@ export const hero = {
 
 export const about = {
   /** Short version for sidebar / card use */
-  short: `${company.name} is a local landscaping and groundworks company based in Thanet. We help homeowners improve their outdoor spaces with patios, driveways, fencing, garden design, groundwork and tree removal services. Our approach is simple: listen carefully, offer honest advice and complete every job to a high standard.`,
+  short: `${company.name} is a local landscaping and groundworks company based in Thanet and covering East Kent. We help homeowners improve outdoor spaces with patios, driveways, fencing, drainage, garden landscaping and site clearance. Our approach is simple: understand the job, give clear advice and leave the property tidy.`,
 
   /** Full version for an about/story section */
-  full: "Your outdoor space should feel like a natural extension of your home — somewhere practical, attractive and enjoyable to spend time in. At TPPS, we work with homeowners across Thanet to create gardens, patios, driveways and outdoor spaces that look great and are built to last. From small improvements to full garden transformations, we offer honest advice, reliable workmanship and a friendly service throughout. We take the time to understand what you want from your space, whether that is a low-maintenance garden, a smart new driveway, a private seating area or a complete outdoor makeover. Our team can help with ideas, planning, preparation and installation, using quality materials and proven methods to achieve a long-lasting finish. We are fully insured and treat every property with respect. From the first visit to the final tidy-up, our aim is to make the process simple, straightforward and stress-free.",
+  full: "Outdoor work needs to be practical as well as good to look at. TPPS Landscapes works with homeowners across Thanet and East Kent on patios, driveways, fencing, garden layouts, drainage and ground preparation. From smaller improvements to full garden renovations, we keep the advice straightforward and the scope clear. We take the time to understand how you want to use the space, what access and drainage are like, and which finish will suit the property. The aim is a clear quote, sensible preparation and a tidy handover.",
 
-  closing:
-    "Let TPPS help you create an outdoor space that adds comfort, style and value to your home.",
+  closing: "Tell us what needs improving and we will talk through the most practical next step.",
 } as const;
 
 // ---------------------------------------------------------------------------
@@ -96,44 +97,43 @@ export const serviceCardCopy: Record<string, { heading: string; short: string; f
     heading:
       services.find((s) => s.id === "patios-pathways")?.name ?? "Patio & Pathway Installation",
     short:
-      "Create the perfect place to relax, dine or entertain outdoors. We install patios using quality materials and proper ground preparation for a strong, attractive finish.",
-    full: "Create a space to relax, entertain or enjoy the garden with a professionally installed patio or pathway. We prepare the ground properly before laying slabs, paving, bricks or stone, helping to ensure a clean finish that is durable and built to last. Whether you want a small seating area or a full garden pathway, we can create a design that fits naturally with your outdoor space.",
+      "Patios and paths installed with proper preparation, sensible drainage and a clean finish.",
+    full: "A patio or pathway should sit well with the garden and cope with everyday use. We prepare the ground properly before laying slabs, paving, brick or stone, and we talk through drainage, access and maintenance before work begins.",
   },
   driveways: {
-    heading: services.find((s) => s.id === "driveways")?.name ?? "Driveway Construction",
+    heading: services.find((s) => s.id === "driveways")?.name ?? "Driveways",
     short:
-      "Improve your home's entrance with a practical and long-lasting driveway. We can help with block paving, gravel, tarmac and resin-bound options.",
-    full: "A new driveway can improve the look of your home while giving you a strong, reliable surface for everyday use. Our team can handle the full process, including excavation, ground preparation, sub-base installation and the finished surface. We work with a range of driveway options, including block paving, gravel, tarmac and resin-bound surfaces.",
+      "Driveway preparation and installation for practical entrances, parking areas and kerb appeal.",
+    full: "A driveway needs the right preparation underneath the final surface. We can help with excavation, levels, sub-base preparation and a finish that suits the property, from gravel and block paving to other suitable driveway options.",
   },
   fencing: {
     heading: services.find((s) => s.id === "fencing")?.name ?? "Fence Installation",
-    short:
-      "Add privacy, security and structure to your garden with professionally installed fencing tailored to your property.",
-    full: "Good fencing can add privacy, security and a smart finish to your garden. We install a range of fencing styles and materials to suit different homes, gardens and budgets. Whether you need to replace old panels, secure a boundary or improve the look of your outdoor space, we can recommend the right option for you.",
+    short: "Fence replacement and installation for privacy, boundaries and a neater garden edge.",
+    full: "Good fencing gives a garden structure, privacy and a clearer boundary. We can replace old panels, improve a boundary line or install fencing as part of a wider garden project, with materials discussed before quoting.",
   },
   "garden-design": {
-    heading: services.find((s) => s.id === "garden-design")?.name ?? "Garden Design & Planning",
+    heading: services.find((s) => s.id === "garden-design")?.name ?? "Landscaping & Garden Design",
     short:
-      "A well-designed garden can completely change the way you use your outdoor space. We help you plan a garden that suits your home, your lifestyle and the amount of maintenance you want.",
-    full: "A well-designed garden can completely change the way you use your outdoor space. We help you plan a garden that suits your home, your lifestyle and the amount of maintenance you want. Whether you prefer a modern, clean design or something more traditional and natural, we can help bring your ideas together and create a practical plan for your garden.",
+      "Practical garden layouts, planting structure and landscaping plans shaped around how you use the space.",
+    full: "Garden design starts with how the space needs to work. We can help plan seating areas, pathways, levels, planting structure and hard landscaping so the finished garden feels practical, settled and manageable.",
   },
   groundworks: {
-    heading: services.find((s) => s.id === "groundworks")?.name ?? "Gardens & Groundworks",
+    heading: services.find((s) => s.id === "groundworks")?.name ?? "Groundworks & Drainage",
     short:
-      "Good groundwork is the foundation of every successful outdoor project. We prepare sites properly to support patios, driveways, landscaping and garden renovations.",
-    full: "From regular garden improvements to full groundwork preparation, we help create outdoor spaces that are both attractive and practical. Our services can include lawn preparation, planting areas, levelling, drainage, foundations, garden clearance and full outdoor renovations. Whether you need a fresh start or ongoing improvements, TPPS can help get the job done properly.",
+      "Excavation, levelling, drainage and sub-base preparation for outdoor projects that need a solid start.",
+    full: "Good groundwork is what helps patios, driveways and garden changes last. We can help with excavation, levelling, drainage, sub-base preparation and site preparation so the visible finish has the right support underneath.",
   },
   "tree-removal": {
-    heading: services.find((s) => s.id === "tree-removal")?.name ?? "Tree Removal",
+    heading: services.find((s) => s.id === "tree-removal")?.name ?? "Tree & Site Clearance",
     short:
-      "Safe and efficient tree removal with minimal disruption to your garden and surrounding areas.",
-    full: "If you have a tree that is unsafe, overgrown or in the way of a new project, our team can help remove it safely and efficiently. We take care to minimise disruption to your garden and surrounding areas, leaving the space clear and ready for its next use.",
+      "Clearance of overgrown areas, vegetation, small trees and waste before new landscaping work.",
+    full: "If a garden or site needs clearing before work can begin, we can help remove vegetation, small trees and waste so the space is ready for its next use. For specialist tree work, we will discuss what is suitable before quoting.",
   },
   "garden-maintenance": {
     heading: services.find((s) => s.id === "garden-maintenance")?.name ?? "Garden Makeovers",
     short:
-      "Whether your garden needs a simple refresh or a complete redesign, we can help turn it into a space that works for you.",
-    full: "A beautiful and well-maintained garden can transform your outdoor space into a peaceful retreat, boost kerb appeal, and provide a relaxing environment for you and your family. Our gardening service is designed to help you create and maintain the perfect garden, whether you are looking for regular upkeep, seasonal planting, or a complete garden redesign.",
+      "Garden tidy-ups, renovation work and practical improvements for spaces that need a fresh start.",
+    full: "Some gardens need a full redesign, while others need a careful tidy-up and a few practical changes. We can help with renovation work, planting areas, lawn preparation, clearance and improvements that make the space easier to use.",
   },
 };
 
@@ -142,11 +142,11 @@ export const serviceCardCopy: Record<string, { heading: string; short: string; f
 // ---------------------------------------------------------------------------
 
 export const ctas = {
-  primary: "Call today for a free quote and site visit",
-  secondary: `Ready to improve your outdoor space? Get in touch with ${company.shortName} today.`,
+  primary: "Request a free landscaping quote",
+  secondary: `Ready to improve your outdoor space? Get in touch with ${company.shortName}.`,
   planning: "Planning a new patio, driveway or garden project? Let's talk.",
-  areas: `Free quotations available across ${townListWithAnd} and surrounding areas.`,
-  open: "Tell us what you have in mind, and we'll help bring it to life.",
+  areas: "Quotations available across Thanet and East Kent.",
+  open: "Tell us what needs improving, and we will talk through the next step.",
 };
 
 // ---------------------------------------------------------------------------
@@ -154,12 +154,10 @@ export const ctas = {
 // ---------------------------------------------------------------------------
 
 export const trustPoints = [
-  "Free quotations and site surveys",
-  ...(company.credentials.licensed && company.credentials.insured
-    ? ["Fully licensed and insured"]
-    : []),
-  "Local and reliable",
-  "Quality workmanship guaranteed",
+  "Free quotations",
+  "Thanet-based local team",
+  "Clear written estimates",
+  "Practical advice before work starts",
 ] as string[];
 
 // ---------------------------------------------------------------------------
@@ -168,7 +166,8 @@ export const trustPoints = [
 
 export const servicesCopy = {
   heading: "Our Services",
-  subtitle: "Comprehensive landscaping and groundwork solutions built to the highest standards.",
+  subtitle:
+    "Landscaping, groundwork and garden improvements for homes across Thanet and East Kent.",
   additionalServicesLabel: "Also offering:",
   additionalServicesLink: "Contact us for details",
 };
@@ -179,20 +178,19 @@ export const servicesCopy = {
 
 export const whyChoose = {
   heading: `Why Choose ${company.shortName}`,
-  subtitle: `We take pride in every detail. Here's why homeowners across ${company.location.area} trust us with their properties.`,
+  subtitle: `A straightforward local team for outdoor work across ${company.location.area}.`,
   points: [
-    `Local ${company.location.area} company`,
+    "Local Thanet roots",
+    "East Kent coverage",
     ...trustPoints,
-    "Skilled and experienced team",
-    "Quality materials",
-    "Attention to detail",
-    "Built to last",
+    "Careful ground preparation",
+    "Respectful site tidy-up",
   ],
   featuredProject: {
-    badge: "Featured Project",
-    title: "Outdoor Spaces Built to Last",
+    badge: "Project Approach",
+    title: "Outdoor work shaped around the property",
     description:
-      "See how we transform ordinary gardens into stunning, practical spaces designed for modern living.",
+      "We look at access, drainage, levels, materials and how you want to use the space before recommending the right route.",
   },
 };
 
@@ -202,5 +200,5 @@ export const whyChoose = {
 
 export const ctaBanner = {
   subtitle:
-    "Let's transform your outdoor space with quality landscaping, groundwork, patios, driveways, and fencing tailored to your property.",
+    "Tell us about your patio, driveway, fencing, drainage or garden project and we will come back with practical next steps.",
 };
