@@ -2,6 +2,9 @@ import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import { siteContent } from "../data/content";
 import { serviceRoutes } from "../data/routes";
 import heroImage from "../../assets/hero-landscaping.jpg";
+import patioPathways01 from "../../assets/patios-pathways-01.jpeg";
+import screenFencingImage from "../../assets/screen-fencing.jpeg";
+import treeWorkImage from "../../assets/tree-work.jpeg";
 
 const phoneHref = siteContent.contact.phone
   ? `tel:${siteContent.contact.phone.replace(/\s+/g, "")}`
@@ -9,18 +12,15 @@ const phoneHref = siteContent.contact.phone
 const serviceCardImages: Record<string, string> = {
   "garden-design":
     "https://images.unsplash.com/photo-1595387426256-cc153122a6f1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsYW5kc2NhcGUlMjBkZXNpZ258ZW58MXx8fHwxNzc2NjEzNDU1fDA&ixlib=rb-4.1.0&q=60&w=480&utm_source=figma&utm_medium=referral",
-  "patios-pathways":
-    "https://images.unsplash.com/photo-1603518147332-ba54b96276a3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzdG9uZSUyMHBhdGlvfGVufDF8fHx8MTc3NjYxMzQ1NXww&ixlib=rb-4.1.0&q=60&w=480&utm_source=figma&utm_medium=referral",
+  "patios-pathways": patioPathways01.src,
   driveways:
     "https://images.unsplash.com/photo-1770446722312-0fcf39b62900?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHxicmljayUyMGRyaXZld2F5fGVufDF8fHx8MTc3NjYxMzQ1NXww&ixlib=rb-4.1.0&q=60&w=480&utm_source=figma&utm_medium=referral",
-  fencing:
-    "https://images.unsplash.com/photo-1763909129965-67e92392f861?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHx3b29kZW4lMjBnYXJkZW4lMjBmZW5jZXxlbnwxfHx8fDE3NzY2MDYyMjF8MA&ixlib=rb-4.1.0&q=60&w=480&utm_source=figma&utm_medium=referral",
+  fencing: screenFencingImage.src,
   groundworks:
     "https://images.unsplash.com/photo-1759579471642-8295d40db07c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHxncm91bmR3b3JrJTIwY29uc3RydWN0aW9uJTIwZGlnZ2VyfGVufDF8fHx8MTc3NjYxMzQ1Nnww&ixlib=rb-4.1.0&q=60&w=480&utm_source=figma&utm_medium=referral",
   "garden-maintenance":
     "https://images.unsplash.com/photo-1683316924890-6a8c5ab10d29?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHxnYXJkZW4lMjBtYWludGVuYW5jZXxlbnwxfHx8fDE3NzY2MTM0NTh8MA&ixlib=rb-4.1.0&q=60&w=480&utm_source=figma&utm_medium=referral",
-  "tree-removal":
-    "https://images.unsplash.com/photo-1590247813693-5541d1c609fd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=60&w=480",
+  "tree-removal": treeWorkImage.src,
 };
 
 const serviceCards = serviceRoutes.map(({ path, service }) => {
@@ -100,8 +100,14 @@ export function Home() {
                 {siteContent.about.title}
               </h2>
               <div className="prose prose-lg text-stone-600">
-                <p className="mb-6">{siteContent.about.paragraphs[0]}</p>
-                <p>{siteContent.about.paragraphs[1]}</p>
+                {siteContent.about.paragraphs.map((paragraph, index) => (
+                  <p
+                    key={paragraph}
+                    className={index < siteContent.about.paragraphs.length - 1 ? "mb-6" : undefined}
+                  >
+                    {paragraph}
+                  </p>
+                ))}
               </div>
               <div className="mt-10 flex items-center gap-6">
                 <a

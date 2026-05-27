@@ -2,7 +2,7 @@
 
 ## Scope
 
-Website: `apps/web`, currently a Vite + React single-page site for TPPS Landscapes Ltd. Target architecture should be React-authored static generation: use React components at build time to emit crawlable HTML, ship CSS and optimized assets, and send little or no customer-facing JavaScript unless a page genuinely needs interaction.
+Website: `apps/web`, currently a Vite + React single-page site for TPPS Landscapes. Target architecture should be React-authored static generation: use React components at build time to emit crawlable HTML, ship CSS and optimized assets, and send little or no customer-facing JavaScript unless a page genuinely needs interaction.
 
 Primary SEO goal: improve local search visibility for landscaping, patios, driveways, fencing, groundworks, garden design, and garden maintenance across Thanet and East Kent, especially Broadstairs, Ramsgate, Margate, Westgate-on-Sea, Birchington, Sandwich, and Deal.
 
@@ -96,7 +96,7 @@ Alternatives no longer preferred:
 ### 2. Metadata and SERP Presentation
 
 - Replace the placeholder title with a local-service title, for example:
-  `TPPS Landscapes Ltd | Landscaping, Patios & Driveways in Thanet`
+  `TPPS Landscapes | Landscaping, Patios & Driveways in Thanet`
 - Add a concise meta description focused on services, service area, and quote intent.
 - Add canonical URL.
 - Add Open Graph and Twitter/X card tags for sharing.

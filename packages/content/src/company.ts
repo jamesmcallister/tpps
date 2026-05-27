@@ -4,17 +4,17 @@
  */
 
 export const company = {
-  name: "TPPS Landscapes Ltd",
+  name: "TPPS Landscapes",
   shortName: "TPPS Landscapes",
   description: {
     short:
-      "TPPS Landscapes Ltd is a local landscaping and groundworks company covering Thanet and East Kent.",
+      "TPPS Landscapes is a local landscaping and groundworks company covering Thanet and East Kent.",
     long: "TPPS Landscapes helps homeowners and local properties with patios, driveways, fencing, garden landscaping, groundworks, drainage, and site clearance across Thanet and East Kent.",
   },
   contact: {
-    email: "hello@tppslandscapes.co.uk",
-    phone: undefined as string | undefined,
-    escalationEmail: "tim@tppslandscapes.co.uk",
+    email: "tim@tppslandscapes.com",
+    phone: "07886106517",
+    escalationEmail: "tim@tppslandscapes.com",
     escalationName: "Tim Pryor",
   },
   location: {
@@ -26,6 +26,7 @@ export const company = {
       "Margate",
       "Westgate-on-Sea",
       "Birchington",
+      "Faversham",
       "Sandwich",
       "Deal",
       "Canterbury",
@@ -33,7 +34,6 @@ export const company = {
       "Herne Bay",
       "Dover",
       "Folkestone",
-      "Hythe",
     ] as string[],
     locale: "UK",
   },

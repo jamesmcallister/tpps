@@ -291,6 +291,66 @@ const emailHref = `mailto:${siteContent.contact.email}`;
         if (menuIcon) menuIcon.textContent = "☰";
       });
 
+      document.querySelectorAll("[data-gallery]").forEach((gallery) => {
+        const images = Array.from(gallery.querySelectorAll("[data-gallery-image]"));
+        const dots = Array.from(gallery.querySelectorAll("[data-gallery-dot]"));
+        const current = gallery.querySelector("[data-gallery-current]");
+        const prev = gallery.querySelector("[data-gallery-prev]");
+        const next = gallery.querySelector("[data-gallery-next]");
+        let index = 0;
+        let touchStartX = 0;
+        let pointerStartX = 0;
+
+        const show = (nextIndex) => {
+          if (!images.length) return;
+          index = (nextIndex + images.length) % images.length;
+          images.forEach((image, imageIndex) => {
+            image.hidden = imageIndex !== index;
+          });
+          dots.forEach((dot, dotIndex) => {
+            if (dotIndex === index) {
+              dot.setAttribute("aria-current", "true");
+            } else {
+              dot.removeAttribute("aria-current");
+            }
+          });
+          if (current) current.textContent = String(index + 1);
+        };
+
+        prev?.addEventListener("click", () => show(index - 1));
+        next?.addEventListener("click", () => show(index + 1));
+        dots.forEach((dot) => {
+          dot.addEventListener("click", () => {
+            show(Number(dot.getAttribute("data-gallery-index") ?? 0));
+          });
+        });
+        gallery.addEventListener(
+          "touchstart",
+          (event) => {
+            touchStartX = event.changedTouches[0]?.clientX ?? 0;
+          },
+          { passive: true },
+        );
+        gallery.addEventListener(
+          "touchend",
+          (event) => {
+            const touchEndX = event.changedTouches[0]?.clientX ?? 0;
+            const delta = touchEndX - touchStartX;
+            if (Math.abs(delta) < 40) return;
+            show(delta < 0 ? index + 1 : index - 1);
+          },
+          { passive: true },
+        );
+        gallery.addEventListener("pointerdown", (event) => {
+          pointerStartX = event.clientX;
+        });
+        gallery.addEventListener("pointerup", (event) => {
+          const delta = event.clientX - pointerStartX;
+          if (Math.abs(delta) < 40) return;
+          show(delta < 0 ? index + 1 : index - 1);
+        });
+      });
+
       setHeaderState();
       window.addEventListener("scroll", setHeaderState, { passive: true });
     </script>

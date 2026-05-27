@@ -81,7 +81,7 @@ export const about = {
   short: `${company.name} is a local landscaping and groundworks company based in Thanet and covering East Kent. We help homeowners improve outdoor spaces with patios, driveways, fencing, drainage, garden landscaping and site clearance. Our approach is simple: understand the job, give clear advice and leave the property tidy.`,
 
   /** Full version for an about/story section */
-  full: "Outdoor work needs to be practical as well as good to look at. TPPS Landscapes works with homeowners across Thanet and East Kent on patios, driveways, fencing, garden layouts, drainage and ground preparation. From smaller improvements to full garden renovations, we keep the advice straightforward and the scope clear. We take the time to understand how you want to use the space, what access and drainage are like, and which finish will suit the property. The aim is a clear quote, sensible preparation and a tidy handover.",
+  full: "TPPS Landscapes works with homeowners across Thanet and East Kent to create outdoor spaces that are practical, well-built and made to last. Whether it's refreshing part of a garden or completely transforming it, we focus on straightforward advice, quality workmanship and a finish you can be proud of. The whole team genuinely love what they do, and love going the extra mile for our customers. \n\n\n\n\n  The quality of the finish is paramount and we endeavour to ensure attention to detail is always at the forefront of all decisions. Working closely with customers and adapting designs as projects evolve, allows the customer to feel in control and part of the process. ",
 
   closing: "Tell us what needs improving and we will talk through the most practical next step.",
 } as const;
@@ -156,7 +156,7 @@ export const ctas = {
 export const trustPoints = [
   "Free quotations",
   "Thanet-based local team",
-  "Clear written estimates",
+  "Design consultation available",
   "Practical advice before work starts",
 ] as string[];
 

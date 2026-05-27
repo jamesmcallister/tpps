@@ -21,10 +21,10 @@ const serviceDisplayOrder = [
   "tree-removal",
 ];
 
-const splitMarker = "We take the time";
-const splitIndex = (about.full as string).indexOf(splitMarker);
-const aboutPara1 = (about.full as string).slice(0, splitIndex).trimEnd();
-const aboutPara2 = (about.full as string).slice(splitIndex);
+const aboutParagraphs = about.full
+  .split(/\n{2,}/)
+  .map((paragraph) => paragraph.trim())
+  .filter(Boolean);
 
 export const siteContent = {
   hero: {
@@ -38,7 +38,7 @@ export const siteContent = {
   about: {
     badge: `About ${company.shortName}`,
     title: hero.tagline,
-    paragraphs: [aboutPara1, aboutPara2],
+    paragraphs: aboutParagraphs,
     linkText: "Explore our services",
   },
 
@@ -105,7 +105,7 @@ export const siteContent = {
     quickLinksTitle: "Quick Links",
     areasTitle: "Areas We Cover",
     contactTitle: "Contact Us",
-    phoneLabel: "Phone number to be confirmed",
+    phoneLabel: "Call Tim",
     locationText: `Serving ${company.location.area}`,
     copyright: `${company.name}. All rights reserved.`,
     privacyPolicy: "Privacy Policy",

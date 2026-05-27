@@ -62,11 +62,11 @@ export const services: Service[] = [
   },
   {
     id: "tree-removal",
-    name: "Tree & Site Clearance",
+    name: "Tree, Hedge & Stump Removal",
     description:
       "Practical clearance of overgrown areas, vegetation, small trees, and garden waste.",
     live: true,
-    tags: ["tree removal", "stump", "clearance"],
+    tags: ["tree removal", "stump", "hedge", "clearance"],
   },
   {
     id: "garden-maintenance",

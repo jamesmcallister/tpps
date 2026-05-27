@@ -2,6 +2,32 @@
 import { company, pricingPolicy } from "@tpps/content";
 import { serviceRoutes } from "../../app/data/routes";
 import SiteLayout from "../../layouts/SiteLayout.astro";
+import patioPathways01 from "../../assets/patios-pathways-01.jpeg";
+import patioPathways02 from "../../assets/patios-pathways-02.jpeg";
+import patioPathways03 from "../../assets/patios-pathways-03.jpeg";
+import patioPathways04 from "../../assets/patios-pathways-04.jpeg";
+import patioPathways05 from "../../assets/patios-pathways-05.jpeg";
+import patioPathways06 from "../../assets/patios-pathways-06.jpeg";
+import patioPathways07 from "../../assets/patios-pathways-07.jpeg";
+import patioPathways08 from "../../assets/patios-pathways-08.jpeg";
+import patioPathways09 from "../../assets/patios-pathways-09.jpeg";
+import patioPathways10 from "../../assets/patios-pathways-10.jpeg";
+import fencing01 from "../../assets/fencing-01.jpeg";
+import fencing02 from "../../assets/fencing-02.jpeg";
+import fencing03 from "../../assets/fencing-03.jpeg";
+import fencing04 from "../../assets/fencing-04.jpeg";
+import fencing05 from "../../assets/fencing-05.jpeg";
+import fencing06 from "../../assets/fencing-06.jpeg";
+import fencing07 from "../../assets/fencing-07.jpeg";
+import fencing08 from "../../assets/fencing-08.jpeg";
+import fencing09 from "../../assets/fencing-09.jpeg";
+import fencing10 from "../../assets/fencing-10.jpeg";
+import fencing11 from "../../assets/fencing-11.jpeg";
+import fencing12 from "../../assets/fencing-12.jpeg";
+import fencing13 from "../../assets/fencing-13.jpeg";
+import fencing14 from "../../assets/fencing-14.jpeg";
+import fencing15 from "../../assets/fencing-15.jpeg";
+import fencing16 from "../../assets/fencing-16.jpeg";
 
 export function getStaticPaths() {
   return serviceRoutes.map(({ service }) => ({
@@ -16,6 +42,127 @@ const description = `${service.description} ${company.shortName} covers Thanet a
 const canonicalPath = `/services/${service.id}/`;
 const relatedServices = serviceRoutes.filter(({ service: item }) => item.id !== service.id).slice(0, 3);
 const tags = service.tags ?? [];
+const serviceGalleries = {
+  "patios-pathways": {
+    heading: "Patios and pathways gallery",
+    description:
+      "Swipe through recent patio and pathway work, from preparation through to finished garden spaces.",
+    images: [
+      {
+        src: patioPathways01.src,
+        alt: "Finished patio and pathway wrapping around a garden lawn and planting bed",
+      },
+      {
+        src: patioPathways02.src,
+        alt: "Finished sandstone patio with screen fencing and an open seating area",
+      },
+      {
+        src: patioPathways03.src,
+        alt: "Patio slabs being laid with levelling spacers during installation",
+      },
+      {
+        src: patioPathways04.src,
+        alt: "Finished garden patio with outdoor dining furniture and planting pots",
+      },
+      {
+        src: patioPathways05.src,
+        alt: "Finished patio seating area beside a lawn and timber fencing",
+      },
+      {
+        src: patioPathways06.src,
+        alt: "Finished patio dining area beside a house and lawn",
+      },
+      {
+        src: patioPathways07.src,
+        alt: "Finished patio area around a garden room with gravel edging",
+      },
+      {
+        src: patioPathways08.src,
+        alt: "Finished paved area around a garden shed and trellis fence",
+      },
+      {
+        src: patioPathways09.src,
+        alt: "Large finished patio area with lawn and raised timber edging",
+      },
+      {
+        src: patioPathways10.src,
+        alt: "Finished patio path leading through a landscaped back garden",
+      },
+    ],
+  },
+  fencing: {
+    heading: "Fencing gallery",
+    description:
+      "Swipe through recent fencing work, from screen fencing and garden gates to longer boundary runs.",
+    images: [
+      {
+        src: fencing01.src,
+        alt: "Finished horizontal timber screen fencing beside a paved patio",
+      },
+      {
+        src: fencing02.src,
+        alt: "Finished timber screen fencing and gate around a decked garden area",
+      },
+      {
+        src: fencing03.src,
+        alt: "Paved patio area enclosed by new timber fencing",
+      },
+      {
+        src: fencing04.src,
+        alt: "Timber screen fencing and decking during installation",
+      },
+      {
+        src: fencing05.src,
+        alt: "Timber screen fencing installed around raised decking joists",
+      },
+      {
+        src: fencing06.src,
+        alt: "Finished timber screen fencing with gate and decked seating area",
+      },
+      {
+        src: fencing07.src,
+        alt: "Long back garden with newly installed timber boundary fencing",
+      },
+      {
+        src: fencing08.src,
+        alt: "New fence panels and concrete posts enclosing a cleared garden corner",
+      },
+      {
+        src: fencing09.src,
+        alt: "Fence panels fitted around a mature tree with concrete posts",
+      },
+      {
+        src: fencing10.src,
+        alt: "New timber boundary fencing beside a garden digger during landscaping work",
+      },
+      {
+        src: fencing11.src,
+        alt: "Long run of new timber boundary fencing across a cleared garden",
+      },
+      {
+        src: fencing12.src,
+        alt: "New garden boundary fencing following the line of a large back garden",
+      },
+      {
+        src: fencing13.src,
+        alt: "Finished fence panels and concrete gravel boards around a cleared garden",
+      },
+      {
+        src: fencing14.src,
+        alt: "Finished timber fencing around a cleared garden area",
+      },
+      {
+        src: fencing15.src,
+        alt: "Long garden with new fence panels installed along both boundaries",
+      },
+      {
+        src: fencing16.src,
+        alt: "Patio installation area bordered by new timber fencing",
+      },
+    ],
+  },
+};
+const gallery = serviceGalleries[service.id as keyof typeof serviceGalleries];
 
 const serviceJsonLd = {
   "@context": "https://schema.org",
@@ -122,6 +269,72 @@ const breadcrumbJsonLd = {
             )
           }
         </section>
+
+        {
+          gallery && (
+            <section>
+              <div class="mb-6">
+                <h2 class="mb-3 text-2xl font-bold text-stone-900">{gallery.heading}</h2>
+                <p class="text-lg leading-relaxed text-stone-600">{gallery.description}</p>
+              </div>
+              <div
+                class="relative overflow-hidden rounded-2xl bg-stone-900 shadow-2xl"
+                data-gallery
+                aria-roledescription="carousel"
+                aria-label={`${service.name} project photos`}
+              >
+                <div class="aspect-[4/3] w-full">
+                  {gallery.images.map((image, index) => (
+                    <img
+                      src={image.src}
+                      alt={image.alt}
+                      class="h-full w-full object-cover"
+                      data-gallery-image
+                      hidden={index !== 0}
+                      loading={index === 0 ? "eager" : "lazy"}
+                      decoding="async"
+                    />
+                  ))}
+                </div>
+                <button
+                  type="button"
+                  class="absolute left-4 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-stone-900 shadow-lg transition-colors hover:bg-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-stone-900"
+                  data-gallery-prev
+                  aria-label="Previous photo"
+                >
+                  <span aria-hidden="true" class="text-2xl leading-none">
+                    &lsaquo;
+                  </span>
+                </button>
+                <button
+                  type="button"
+                  class="absolute right-4 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-stone-900 shadow-lg transition-colors hover:bg-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-stone-900"
+                  data-gallery-next
+                  aria-label="Next photo"
+                >
+                  <span aria-hidden="true" class="text-2xl leading-none">
+                    &rsaquo;
+                  </span>
+                </button>
+                <div class="absolute bottom-4 left-4 rounded-full bg-stone-900/70 px-3 py-1 text-sm font-semibold text-white backdrop-blur-sm">
+                  <span data-gallery-current>1</span> / {gallery.images.length}
+                </div>
+                <div class="absolute bottom-4 right-4 flex gap-2" aria-label="Choose photo">
+                  {gallery.images.map((image, index) => (
+                    <button
+                      type="button"
+                      class="h-2.5 w-2.5 rounded-full bg-white/50 transition-colors aria-current:bg-white"
+                      data-gallery-dot
+                      data-gallery-index={index}
+                      aria-label={`Show photo ${index + 1}`}
+                      aria-current={index === 0 ? "true" : undefined}
+                    />
+                  ))}
+                </div>
+              </div>
+            </section>
+          )
+        }
 
         <section>
           <h2 class="mb-4 text-2xl font-bold text-stone-900">Areas Served</h2>

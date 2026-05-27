@@ -3,13 +3,13 @@
 ## 1. Company Identity
 
 **Name:**
-TPPS Landscapes Ltd
+TPPS Landscapes
 
 **Short Name:**
 TPPS Landscapes
 
 **Description (Short):**
-TPPS Landscapes Ltd is a premium landscaping and groundwork company serving Thanet and East Kent.
+TPPS Landscapes is a premium landscaping and groundwork company serving Thanet and East Kent.
 
 **Description (Long):**
 TPPS Landscapes handles gardening and groundwork enquiries, providing patios, driveways, fencing, design, groundworks, tree removal, and garden maintenance. Based in Thanet with 10+ years' experience.
@@ -58,7 +58,7 @@ Other nearby areas on request
 Thanet's Local Landscaping Company
 
 **Company Name:**
-TPPS Landscapes Ltd
+TPPS Landscapes
 
 **Tagline:**
 Landscaping, patios, driveways and groundworks across Thanet
@@ -66,31 +66,31 @@ Landscaping, patios, driveways and groundworks across Thanet
 **Intro Variation (Default):**
 
 - Heading: Thanet's trusted local landscaping team
-- Body: TPPS Landscapes Ltd is a local landscaping and groundworks company covering Broadstairs, Ramsgate and Margate and the surrounding areas. Whether you are planning a new patio, driveway, garden redesign or outdoor renovation, our experienced team is here to help from start to finish. We take care of the groundwork, preparation and finishing touches, making sure every job is completed properly, safely and with care.
+- Body: TPPS Landscapes is a local landscaping and groundworks company covering Broadstairs, Ramsgate and Margate and the surrounding areas. Whether you are planning a new patio, driveway, garden redesign or outdoor renovation, our experienced team is here to help from start to finish. We take care of the groundwork, preparation and finishing touches, making sure every job is completed properly, safely and with care.
 - CTA: Call today for a free quote and site visit.
 
 **Intro Variation (Option 1):**
 
 - Heading: Thanet's trusted local landscaping team
-- Body: From patios and driveways to fencing, groundworks and complete garden makeovers, TPPS Landscapes Ltd helps homeowners across Broadstairs, Ramsgate and Margate and surrounding areas create outdoor spaces they can enjoy all year round.
+- Body: From patios and driveways to fencing, groundworks and complete garden makeovers, TPPS Landscapes helps homeowners across Broadstairs, Ramsgate and Margate and surrounding areas create outdoor spaces they can enjoy all year round.
 - CTA: Get in touch today for a free quote and site visit.
 
 **Intro Variation (Option 2):**
 
 - Heading: Landscaping, driveways and groundworks across Thanet
-- Body: TPPS Landscapes Ltd provides reliable landscaping and groundwork services for homeowners across Broadstairs, Ramsgate and Margate and nearby areas. We combine careful preparation, quality materials and skilled workmanship to deliver outdoor spaces that are practical, attractive and built to last.
+- Body: TPPS Landscapes provides reliable landscaping and groundwork services for homeowners across Broadstairs, Ramsgate and Margate and nearby areas. We combine careful preparation, quality materials and skilled workmanship to deliver outdoor spaces that are practical, attractive and built to last.
 - CTA: Contact us today to arrange your free quotation.
 
 **Intro Variation (Option 3):**
 
 - Heading: Let's make more of your outdoor space
-- Body: Whether you want a new patio for summer evenings, a driveway that looks smart and lasts, or a complete garden transformation, TPPS Landscapes Ltd is here to help. We are a local Thanet team offering friendly advice, reliable workmanship and high-quality landscaping services across Broadstairs, Ramsgate and Margate and the surrounding areas.
+- Body: Whether you want a new patio for summer evenings, a driveway that looks smart and lasts, or a complete garden transformation, TPPS Landscapes is here to help. We are a local Thanet team offering friendly advice, reliable workmanship and high-quality landscaping services across Broadstairs, Ramsgate and Margate and the surrounding areas.
 - CTA: Book your free quote today.
 
 ## 5. About Section
 
 **Short:**
-TPPS Landscapes Ltd is a local landscaping and groundworks company based in Thanet. We help homeowners improve their outdoor spaces with patios, driveways, fencing, garden design, groundwork and tree removal services. Our approach is simple: listen carefully, offer honest advice and complete every job to a high standard.
+TPPS Landscapes is a local landscaping and groundworks company based in Thanet. We help homeowners improve their outdoor spaces with patios, driveways, fencing, garden design, groundwork and tree removal services. Our approach is simple: listen carefully, offer honest advice and complete every job to a high standard.
 
 **Full:**
 Your outdoor space should feel like a natural extension of your home — somewhere practical, attractive and enjoyable to spend time in. At TPPS, we work with homeowners across Thanet to create gardens, patios, driveways and outdoor spaces that look great and are built to last. From small improvements to full garden transformations, we offer honest advice, reliable workmanship and a friendly service throughout. We take the time to understand what you want from your space, whether that is a low-maintenance garden, a smart new driveway, a private seating area or a complete outdoor makeover. Our team can help with ideas, planning, preparation and installation, using quality materials and proven methods to achieve a long-lasting finish. We are fully insured and treat every property with respect. From the first visit to the final tidy-up, our aim is to make the process simple, straightforward and stress-free.
