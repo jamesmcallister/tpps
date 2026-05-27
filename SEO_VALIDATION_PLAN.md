@@ -16,7 +16,7 @@ Primary SEO goal: improve local search visibility for landscaping, patios, drive
 - There is no meta description, canonical URL, robots directive, Open Graph metadata, Twitter/X card metadata, or structured data.
 - There is no visible sitemap or robots file under `apps/web/public`.
 - The navigation links to `#gallery`, but no matching `id="gallery"` section exists in `Home.tsx`.
-- Contact details are inconsistent: `packages/content/src/company.ts` has `hello@tppslandscapes.co.uk` and a placeholder-looking phone, while `apps/web/src/app/data/content.ts` has `info@tppslandscapes.co.uk` and `01234567890`.
+- Contact details should stay consistent across the site and any launch collateral: use `tim@tppslandscapes.com` and `07886 106 517`.
 
 ### High
 

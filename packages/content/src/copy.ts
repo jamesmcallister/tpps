@@ -50,7 +50,7 @@ export const hero = {
     option1: {
       heading: "Trusted landscaping and groundworks across East Kent",
       body: `From patios and driveways to fencing, drainage and garden renovations, ${company.name} helps homeowners across Thanet and East Kent improve outdoor spaces with practical, careful workmanship.`,
-      cta: "Request a free quote.",
+      cta: "Request a quote",
     },
     option2: {
       heading: "Local landscaping specialists covering Thanet and East Kent",
@@ -67,8 +67,8 @@ export const hero = {
   /** Default / currently used hero intro */
   intro: {
     heading: "Trusted landscaping and groundworks across East Kent",
-    body: `${company.name} is a local landscaping and groundworks company with Thanet roots, covering homes and local properties across East Kent. We help with patios, driveways, fencing, drainage, garden renovations and site preparation, with clear advice before work starts and careful attention to the finish.`,
-    cta: "Request a free quote.",
+    body: `${company.name} is a local landscaping and groundworks company with Thanet roots, covering homes and local properties across East Kent. We specialise in patios, driveways, fencing, drainage, garden renovations and site preparation.`,
+    cta: "Request a quote",
   },
 };
 
@@ -81,7 +81,7 @@ export const about = {
   short: `${company.name} is a local landscaping and groundworks company based in Thanet and covering East Kent. We help homeowners improve outdoor spaces with patios, driveways, fencing, drainage, garden landscaping and site clearance. Our approach is simple: understand the job, give clear advice and leave the property tidy.`,
 
   /** Full version for an about/story section */
-  full: "TPPS Landscapes works with homeowners across Thanet and East Kent to create outdoor spaces that are practical, well-built and made to last. Whether it's refreshing part of a garden or completely transforming it, we focus on straightforward advice, quality workmanship and a finish you can be proud of. The whole team genuinely love what they do, and love going the extra mile for our customers. \n\n\n\n\n  The quality of the finish is paramount and we endeavour to ensure attention to detail is always at the forefront of all decisions. Working closely with customers and adapting designs as projects evolve, allows the customer to feel in control and part of the process. ",
+  full: "TPPS Landscapes works with homeowners across Thanet and East Kent to create outdoor spaces that are practical, well-built and made to last. Whether it's refreshing part of a garden or completely transforming it, we focus on straightforward advice, quality workmanship and a finish you can be proud of. The whole team genuinely love what they do, and love going the extra mile for our customers.\n\nWe care about the finish, the details and leaving the job tidy. As the work develops, we keep you involved so the finished garden feels right for you.",
 
   closing: "Tell us what needs improving and we will talk through the most practical next step.",
 } as const;

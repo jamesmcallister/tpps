@@ -17,10 +17,10 @@ TPPS Landscapes handles gardening and groundwork enquiries, providing patios, dr
 ## 2. Contact & Location
 
 **Email:**
-hello@tppslandscapes.co.uk
+tim@tppslandscapes.com
 
 **Phone:**
-01227 000000
+07886 106 517
 
 **Area:**
 Thanet and East Kent

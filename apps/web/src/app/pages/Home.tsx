@@ -146,8 +146,7 @@ export function Home() {
                   </svg>
                 </div>
                 <div>
-                  <div className="font-bold text-stone-900 text-xl">Clear</div>
-                  <div className="text-stone-500 text-sm font-medium">Written estimates</div>
+                  <div className="font-bold text-stone-900 text-xl">Clear written estimates</div>
                 </div>
               </div>
             </div>

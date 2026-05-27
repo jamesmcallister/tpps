@@ -13,7 +13,7 @@ export const company = {
   },
   contact: {
     email: "tim@tppslandscapes.com",
-    phone: "07886106517",
+    phone: "07886 106 517",
     escalationEmail: "tim@tppslandscapes.com",
     escalationName: "Tim Pryor",
   },

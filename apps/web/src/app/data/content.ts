@@ -30,7 +30,7 @@ export const siteContent = {
   hero: {
     title: hero.intro.heading,
     subtitle: hero.intro.body,
-    ctaPrimary: "Request a Quote",
+    ctaPrimary: "Request a quote",
     ctaSecondary: "View Services",
     trustPoints: [...trustPoints],
   },
@@ -77,7 +77,7 @@ export const siteContent = {
   cta: {
     heading: ctas.primary,
     subtitle: ctaBanner.subtitle,
-    primaryButton: "Email Your Enquiry",
+    primaryButton: "Email your enquiry",
     secondaryButton: "View Services",
   },
 
@@ -96,7 +96,7 @@ export const siteContent = {
       { name: "Areas We Cover", href: "#areas" },
       { name: "Contact", href: "#contact" },
     ],
-    ctaPrimary: "Request a Quote",
+    ctaPrimary: "Request a quote",
     ctaSecondary: "Email us",
   },
 

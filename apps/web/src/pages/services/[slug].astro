@@ -38,7 +38,7 @@ export function getStaticPaths() {
 
 const { service } = Astro.props;
 const title = `${service.name} across Thanet & East Kent | ${company.shortName}`;
-const description = `${service.description} ${company.shortName} covers Thanet and East Kent, including Canterbury, Dover, Folkestone, Hythe, Whitstable, Herne Bay, Sandwich and Deal.`;
+const description = `${service.description} ${company.shortName} covers Thanet and East Kent, including Canterbury, Dover, Folkestone, Whitstable, Herne Bay, Sandwich and Deal.`;
 const canonicalPath = `/services/${service.id}/`;
 const relatedServices = serviceRoutes.filter(({ service: item }) => item.id !== service.id).slice(0, 3);
 const tags = service.tags ?? [];
@@ -225,7 +225,7 @@ const breadcrumbJsonLd = {
             href={`mailto:${company.contact.email}?subject=${encodeURIComponent(`${service.name} quote request`)}`}
             class="rounded-md bg-green-800 px-6 py-3 text-center font-semibold text-white hover:bg-green-900"
           >
-            Request a free quote
+            Request a quote
           </a>
           {
             company.contact.phone ? (
