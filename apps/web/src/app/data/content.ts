@@ -31,7 +31,7 @@ export const siteContent = {
     title: hero.intro.heading,
     subtitle: hero.intro.body,
     ctaPrimary: "Request a quote",
-    ctaSecondary: "View Services",
+    ctaSecondary: "View services",
     trustPoints: [...trustPoints],
   },
 
@@ -78,7 +78,7 @@ export const siteContent = {
     heading: ctas.primary,
     subtitle: ctaBanner.subtitle,
     primaryButton: "Email your enquiry",
-    secondaryButton: "View Services",
+    secondaryButton: "View services",
   },
 
   contact: {

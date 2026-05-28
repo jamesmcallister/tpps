@@ -9,6 +9,8 @@ import treeWorkImage from "../../assets/tree-work.jpeg";
 const phoneHref = siteContent.contact.phone
   ? `tel:${siteContent.contact.phone.replace(/\s+/g, "")}`
   : undefined;
+const phoneNumber = siteContent.contact.phone;
+const emailHref = `mailto:${siteContent.contact.email}`;
 const serviceCardImages: Record<string, string> = {
   "garden-design":
     "https://images.unsplash.com/photo-1595387426256-cc153122a6f1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsYW5kc2NhcGUlMjBkZXNpZ258ZW58MXx8fHwxNzc2NjEzNDU1fDA&ixlib=rb-4.1.0&q=60&w=480&utm_source=figma&utm_medium=referral",
@@ -60,20 +62,89 @@ export function Home() {
             <p className="text-lg md:text-xl text-stone-200 mb-10 leading-relaxed font-light">
               {siteContent.hero.subtitle}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 mb-16">
-              <a
-                href="#contact"
-                className="bg-green-800 hover:bg-green-700 text-white px-8 py-4 rounded-md font-semibold text-lg transition-colors shadow-lg text-center"
-              >
-                {siteContent.hero.ctaPrimary}
-              </a>
-              <a
-                href={phoneHref ?? "#services"}
-                className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 text-white px-8 py-4 rounded-md font-semibold text-lg transition-colors shadow-lg text-center flex items-center justify-center gap-2"
-              >
-                {siteContent.hero.ctaSecondary}
-              </a>
+            <div className="mb-8 w-full max-w-3xl rounded-xl border border-white/25 bg-stone-950/45 p-5 shadow-2xl backdrop-blur-md sm:p-8">
+              <p className="mb-5 text-base font-medium text-stone-100">
+                Prefer to chat? Call Tim directly
+              </p>
+              <div className="mb-7 flex items-center gap-4">
+                <span className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-green-700 text-white shadow-lg sm:h-14 sm:w-14">
+                  <svg
+                    className="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                    />
+                  </svg>
+                </span>
+                <a
+                  href={phoneHref ?? "#contact"}
+                  aria-label={
+                    phoneHref && phoneNumber
+                      ? `Call Tim at TPPS Landscapes on ${phoneNumber}`
+                      : undefined
+                  }
+                  className="text-3xl font-bold tracking-normal text-white transition-colors hover:text-green-100 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-stone-900 sm:text-4xl"
+                >
+                  {phoneNumber}
+                </a>
+              </div>
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                <a
+                  href={phoneHref ?? "#contact"}
+                  aria-label={
+                    phoneHref && phoneNumber ? `Call TPPS Landscapes on ${phoneNumber}` : undefined
+                  }
+                  className="flex min-h-14 items-center justify-center gap-2 rounded-md bg-green-800 px-6 py-4 text-center text-base font-semibold text-white shadow-lg transition-colors hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-stone-900"
+                >
+                  <svg
+                    className="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                    />
+                  </svg>
+                  Call Now
+                </a>
+                <a
+                  href={emailHref}
+                  className="flex min-h-14 items-center justify-center gap-2 rounded-md bg-white px-6 py-4 text-center text-base font-semibold text-stone-900 shadow-lg transition-colors hover:bg-stone-50 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-stone-900"
+                >
+                  <svg
+                    className="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                    />
+                  </svg>
+                  Email Enquiry
+                </a>
+              </div>
             </div>
+
+            <p className="mb-14 max-w-3xl text-center text-sm text-stone-200 sm:text-base">
+              Most customers find it easier to discuss projects over the phone
+            </p>
 
             {/* Trust Points */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 pt-8 border-t border-white/20">
@@ -394,19 +465,28 @@ export function Home() {
             {siteContent.cta.subtitle}
           </p>
 
-          <div className="flex flex-col sm:flex-row justify-center gap-6">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
             <a
-              href={`mailto:${siteContent.contact.email}`}
-              className="bg-white hover:bg-stone-50 text-green-900 px-8 py-4 rounded-md font-bold text-lg transition-colors shadow-xl text-center"
+              href="#contact"
+              className="flex min-h-14 items-center justify-center rounded-md bg-white px-6 py-4 text-center text-base font-bold text-green-900 shadow-xl transition-colors hover:bg-stone-50 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-green-950"
             >
-              {siteContent.cta.primaryButton}
+              Request a quote
             </a>
             <a
-              href={phoneHref ?? "#services"}
-              className="bg-green-800 hover:bg-green-700 border border-green-700 text-white px-8 py-4 rounded-md font-bold text-lg transition-colors shadow-lg text-center flex items-center justify-center gap-2"
+              href={phoneHref ?? "#contact"}
+              aria-label={
+                phoneHref && phoneNumber ? `Call TPPS Landscapes on ${phoneNumber}` : undefined
+              }
+              className="flex min-h-14 items-center justify-center gap-2 rounded-md bg-green-700 px-6 py-4 text-center text-base font-bold text-white shadow-lg transition-colors hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-green-950"
             >
               {phoneHref ? (
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg
+                  className="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -414,9 +494,19 @@ export function Home() {
                     d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                   />
                 </svg>
-              ) : (
-                <span aria-hidden="true">&rarr;</span>
-              )}
+              ) : null}
+              Call TPPS
+            </a>
+            <a
+              href={emailHref}
+              className="flex min-h-14 items-center justify-center rounded-md border border-white/30 bg-white/10 px-6 py-4 text-center text-base font-bold text-white shadow-lg transition-colors hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-green-950"
+            >
+              {siteContent.cta.primaryButton}
+            </a>
+            <a
+              href="#services"
+              className="flex min-h-14 items-center justify-center rounded-md border border-white/30 px-6 py-4 text-center text-base font-bold text-white transition-colors hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-green-950"
+            >
               {siteContent.cta.secondaryButton}
             </a>
           </div>
