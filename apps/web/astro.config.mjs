@@ -11,6 +11,24 @@ export default defineConfig({
     seoInAstro({
       baseUrl,
       siteName: "TPPS Landscapes",
+      defaultOgImg: "/og-image.jpg",
+      llmsTxt: false,
+      sitemapXml: {
+        sitemap: [
+          {
+            route: "/",
+            changeFrequency: "weekly",
+            priority: 1,
+          },
+        ],
+      },
+      robotsTxt: {
+        rules: {
+          userAgent: "*",
+          allow: "/",
+        },
+        sitemap: `${baseUrl}/sitemap-index.xml`,
+      },
     }),
   ],
   site: baseUrl,

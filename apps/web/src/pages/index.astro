@@ -1,40 +1,33 @@
 ---
-import { company } from "@tpps/content";
+import { company, homepageSeo } from "@tpps/content";
 import SiteLayout from "../layouts/SiteLayout.astro";
 import { Home } from "../app/pages/Home";
 
-const title = "TPPS Landscapes | Landscaping, patios, fencing and garden work";
-const description =
-  "Local landscaping, patios, fencing, turfing and garden maintenance. Call Tim for a quote.";
-
 const localBusinessJsonLd = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
+  "@type": ["LocalBusiness", "LandscapingBusiness"],
   name: company.name,
-  url: "https://www.tppslandscapes.com/",
+  url: homepageSeo.canonicalUrl,
+  image: homepageSeo.socialImage,
   ...(company.contact.phone ? { telephone: company.contact.phone } : {}),
   email: company.contact.email,
   description: company.description.short,
-  areaServed: company.location.towns.map((town) => ({
+  areaServed: homepageSeo.serviceAreas.map((town) => ({
     "@type": "Place",
     name: town,
   })),
   serviceArea: {
     "@type": "AdministrativeArea",
-    name: company.location.area,
+    name: homepageSeo.serviceAreaRegion,
   },
-  knowsAbout: [
-    "Landscaping",
-    "Patios",
-    "Driveways",
-    "Fencing",
-    "Groundworks",
-    "Garden design",
-    "Garden maintenance",
-  ],
+  knowsAbout: homepageSeo.knowsAbout,
 };
 ---
 
-<SiteLayout title={title} description={description} structuredData={[localBusinessJsonLd]}>
+<SiteLayout
+  title={homepageSeo.title}
+  description={homepageSeo.description}
+  structuredData={[localBusinessJsonLd]}
+>
   <Home />
 </SiteLayout>

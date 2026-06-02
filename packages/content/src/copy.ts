@@ -202,3 +202,69 @@ export const ctaBanner = {
   subtitle:
     "Tell us about your patio, driveway, fencing, drainage or garden project and we will come back with practical next steps.",
 };
+
+// ---------------------------------------------------------------------------
+// SEO copy shared across channels
+// ---------------------------------------------------------------------------
+
+export const homepageSeo = {
+  title: `${company.name} | Landscaping, Patios, Fencing & Garden Work`,
+  description: `${company.name} provides local landscaping, patios, fencing, raised beds, turfing and garden work. Call Tim for a friendly quote.`,
+  canonicalUrl: "https://www.tppslandscapes.com/",
+  socialImage: "https://www.tppslandscapes.com/og-image.jpg",
+  serviceAreaRegion: "Kent",
+  serviceAreas: company.location.towns,
+  footerSummary: `Landscaping in ${company.location.featuredTownsLabel} and surrounding Kent villages, including patios, fencing, raised beds, turfing, garden clearance, driveways and general landscaping.`,
+  knowsAbout: [
+    "Landscaping",
+    "Patios",
+    "Driveways",
+    "Fencing",
+    "Raised beds",
+    "Turfing",
+    "Garden clearance",
+    "General landscaping",
+    "Garden maintenance",
+  ],
+} as const;
+
+export const websiteUi = {
+  hero: {
+    ctaPrimary: "Request a quote",
+    ctaSecondary: "View services",
+  },
+  about: {
+    badge: `About ${company.shortName}`,
+    linkText: "Explore our services",
+  },
+  services: {
+    additionalServices: "Mixed landscaping and groundwork projects",
+  },
+  whyChoose: {
+    ctaText: "See typical work",
+  },
+  cta: {
+    primaryButton: "Email your enquiry",
+    secondaryButton: "View services",
+  },
+  navigation: {
+    links: [
+      { name: "Home", href: "#" },
+      { name: "Services", href: "#services" },
+      { name: "About", href: "#about" },
+      { name: "Work", href: "#work" },
+      { name: "Areas We Cover", href: "#areas" },
+      { name: "Contact", href: "#contact" },
+    ],
+    ctaPrimary: "Request a quote",
+    ctaSecondary: "Email us",
+  },
+  footer: {
+    quickLinksTitle: "Quick Links",
+    areasTitle: "Areas We Cover",
+    contactTitle: "Contact Us",
+    phoneLabel: "Call Tim",
+    privacyPolicy: "Privacy Policy",
+    termsOfService: "Terms of Service",
+  },
+} as const;

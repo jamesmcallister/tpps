@@ -58,6 +58,10 @@ const emailHref = `mailto:${siteContent.contact.email}`;
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="TPPS Landscapes patio and garden work across Thanet and East Kent"
+    />
     <meta property="og:site_name" content={company.name} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
@@ -218,6 +222,9 @@ const emailHref = `mailto:${siteContent.contact.email}`;
             </a>
             <p class="text-sm leading-relaxed text-stone-400">
               {siteContent.footer.companyDescription}
+            </p>
+            <p class="text-sm leading-relaxed text-stone-500">
+              {siteContent.footer.seoSummary}
             </p>
           </div>
 

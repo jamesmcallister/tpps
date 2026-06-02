@@ -38,7 +38,7 @@ export function getStaticPaths() {
 
 const { service } = Astro.props;
 const title = `${service.name} across Thanet & East Kent | ${company.shortName}`;
-const description = `${service.description} ${company.shortName} covers Thanet and East Kent, including Canterbury, Dover, Folkestone, Whitstable, Herne Bay, Sandwich and Deal.`;
+const description = `${service.description} ${company.shortName} covers Thanet and East Kent, including ${company.location.featuredTownsLabel} and surrounding Kent villages.`;
 const canonicalPath = `/services/${service.id}/`;
 const relatedServices = serviceRoutes.filter(({ service: item }) => item.id !== service.id).slice(0, 3);
 const tags = service.tags ?? [];

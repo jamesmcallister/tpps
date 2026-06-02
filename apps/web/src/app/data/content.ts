@@ -4,10 +4,12 @@ import {
   company,
   ctas,
   ctaBanner,
+  homepageSeo,
   hero,
   serviceCardCopy,
   servicesCopy,
   trustPoints,
+  websiteUi,
   whyChoose,
 } from "@tpps/content";
 
@@ -30,16 +32,16 @@ export const siteContent = {
   hero: {
     title: hero.intro.heading,
     subtitle: hero.intro.body,
-    ctaPrimary: "Request a quote",
-    ctaSecondary: "View services",
+    ctaPrimary: websiteUi.hero.ctaPrimary,
+    ctaSecondary: websiteUi.hero.ctaSecondary,
     trustPoints: [...trustPoints],
   },
 
   about: {
-    badge: `About ${company.shortName}`,
+    badge: websiteUi.about.badge,
     title: hero.tagline,
     paragraphs: aboutParagraphs,
-    linkText: "Explore our services",
+    linkText: websiteUi.about.linkText,
   },
 
   services: {
@@ -51,7 +53,7 @@ export const siteContent = {
       description: serviceCardCopy[id].short,
     })),
     additionalServicesLabel: servicesCopy.additionalServicesLabel,
-    additionalServices: "Mixed landscaping and groundwork projects",
+    additionalServices: websiteUi.services.additionalServices,
     additionalServicesLink: servicesCopy.additionalServicesLink,
   },
 
@@ -63,7 +65,7 @@ export const siteContent = {
       badge: whyChoose.featuredProject.badge,
       title: whyChoose.featuredProject.title,
       description: whyChoose.featuredProject.description,
-      ctaText: "See typical work",
+      ctaText: websiteUi.whyChoose.ctaText,
     },
   },
 
@@ -77,8 +79,8 @@ export const siteContent = {
   cta: {
     heading: ctas.primary,
     subtitle: ctaBanner.subtitle,
-    primaryButton: "Email your enquiry",
-    secondaryButton: "View services",
+    primaryButton: websiteUi.cta.primaryButton,
+    secondaryButton: websiteUi.cta.secondaryButton,
   },
 
   contact: {
@@ -88,27 +90,21 @@ export const siteContent = {
 
   navigation: {
     companyName: company.name,
-    links: [
-      { name: "Home", href: "#" },
-      { name: "Services", href: "#services" },
-      { name: "About", href: "#about" },
-      { name: "Work", href: "#work" },
-      { name: "Areas We Cover", href: "#areas" },
-      { name: "Contact", href: "#contact" },
-    ],
-    ctaPrimary: "Request a quote",
-    ctaSecondary: "Email us",
+    links: [...websiteUi.navigation.links],
+    ctaPrimary: websiteUi.navigation.ctaPrimary,
+    ctaSecondary: websiteUi.navigation.ctaSecondary,
   },
 
   footer: {
     companyDescription: about.short,
-    quickLinksTitle: "Quick Links",
-    areasTitle: "Areas We Cover",
-    contactTitle: "Contact Us",
-    phoneLabel: "Call Tim",
+    seoSummary: homepageSeo.footerSummary,
+    quickLinksTitle: websiteUi.footer.quickLinksTitle,
+    areasTitle: websiteUi.footer.areasTitle,
+    contactTitle: websiteUi.footer.contactTitle,
+    phoneLabel: websiteUi.footer.phoneLabel,
     locationText: `Serving ${company.location.area}`,
     copyright: `${company.name}. All rights reserved.`,
-    privacyPolicy: "Privacy Policy",
-    termsOfService: "Terms of Service",
+    privacyPolicy: websiteUi.footer.privacyPolicy,
+    termsOfService: websiteUi.footer.termsOfService,
   },
 };

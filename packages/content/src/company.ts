@@ -3,6 +3,11 @@
  * Single source of truth for all apps (email, website, etc.).
  */
 
+const formatList = (items: readonly string[]) =>
+  items.length <= 1
+    ? (items[0] ?? "")
+    : `${items.slice(0, -1).join(", ")} and ${items[items.length - 1]}`;
+
 export const company = {
   name: "TPPS Landscapes",
   shortName: "TPPS Landscapes",
@@ -35,6 +40,27 @@ export const company = {
       "Dover",
       "Folkestone",
     ] as string[],
+    /** Priority towns used in SEO copy so homepage and service pages stay aligned */
+    featuredTowns: [
+      "Ramsgate",
+      "Margate",
+      "Broadstairs",
+      "Birchington",
+      "Westgate-on-Sea",
+      "Canterbury",
+      "Sandwich",
+      "Dover",
+    ] as string[],
+    featuredTownsLabel: formatList([
+      "Ramsgate",
+      "Margate",
+      "Broadstairs",
+      "Birchington",
+      "Westgate-on-Sea",
+      "Canterbury",
+      "Sandwich",
+      "Dover",
+    ]),
     locale: "UK",
   },
   credentials: {
