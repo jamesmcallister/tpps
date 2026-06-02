@@ -12,7 +12,7 @@ export default defineConfig({
       baseUrl,
       siteName: "TPPS Landscapes",
       defaultOgImg: "/og-image.jpg",
-      llmsTxt: false,
+      llmsTxt: true,
       sitemapXml: {
         sitemap: [
           {
