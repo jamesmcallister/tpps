@@ -2,9 +2,9 @@ import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import { siteContent } from "../data/content";
 import { serviceRoutes } from "../data/routes";
 import heroImage from "../../assets/hero-landscaping.jpg";
-import patioPathways01 from "../../assets/patios-pathways-01.jpeg";
-import screenFencingImage from "../../assets/screen-fencing.jpeg";
-import treeWorkImage from "../../assets/tree-work.jpeg";
+import patioPathwaysCardImage from "../../assets/home/patios-pathways-card.jpg";
+import screenFencingCardImage from "../../assets/home/fencing-card.jpg";
+import treeWorkCardImage from "../../assets/home/tree-work-card.jpg";
 
 const phoneHref = siteContent.contact.phone
   ? `tel:${siteContent.contact.phone.replace(/\s+/g, "")}`
@@ -14,15 +14,15 @@ const emailHref = `mailto:${siteContent.contact.email}`;
 const serviceCardImages: Record<string, string> = {
   "garden-design":
     "https://images.unsplash.com/photo-1595387426256-cc153122a6f1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsYW5kc2NhcGUlMjBkZXNpZ258ZW58MXx8fHwxNzc2NjEzNDU1fDA&ixlib=rb-4.1.0&q=60&w=480&utm_source=figma&utm_medium=referral",
-  "patios-pathways": patioPathways01.src,
+  "patios-pathways": patioPathwaysCardImage.src,
   driveways:
     "https://images.unsplash.com/photo-1770446722312-0fcf39b62900?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHxicmljayUyMGRyaXZld2F5fGVufDF8fHx8MTc3NjYxMzQ1NXww&ixlib=rb-4.1.0&q=60&w=480&utm_source=figma&utm_medium=referral",
-  fencing: screenFencingImage.src,
+  fencing: screenFencingCardImage.src,
   groundworks:
     "https://images.unsplash.com/photo-1759579471642-8295d40db07c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHxncm91bmR3b3JrJTIwY29uc3RydWN0aW9uJTIwZGlnZ2VyfGVufDF8fHx8MTc3NjYxMzQ1Nnww&ixlib=rb-4.1.0&q=60&w=480&utm_source=figma&utm_medium=referral",
   "garden-maintenance":
     "https://images.unsplash.com/photo-1683316924890-6a8c5ab10d29?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHxnYXJkZW4lMjBtYWludGVuYW5jZXxlbnwxfHx8fDE3NzY2MTM0NTh8MA&ixlib=rb-4.1.0&q=60&w=480&utm_source=figma&utm_medium=referral",
-  "tree-removal": treeWorkImage.src,
+  "tree-removal": treeWorkCardImage.src,
 };
 
 const serviceCards = serviceRoutes.map(({ path, service }) => {
