@@ -99,7 +99,9 @@ export function Home() {
                 <a
                   href={phoneHref ?? "#contact"}
                   aria-label={
-                    phoneHref && phoneNumber ? `Call TPPS Landscapes on ${phoneNumber}` : undefined
+                    phoneHref && phoneNumber
+                      ? `Call Now: TPPS Landscapes on ${phoneNumber}`
+                      : undefined
                   }
                   className="flex min-h-14 items-center justify-center gap-2 rounded-md bg-green-800 px-6 py-4 text-center text-base font-semibold text-white shadow-lg transition-colors hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-stone-900"
                 >
@@ -313,7 +315,7 @@ export function Home() {
                       </svg>
                     </div>
                     <div>
-                      <h4 className="font-semibold text-stone-900">{point}</h4>
+                      <p className="font-semibold text-stone-900">{point}</p>
                     </div>
                   </div>
                 ))}
@@ -475,7 +477,7 @@ export function Home() {
             <a
               href={phoneHref ?? "#contact"}
               aria-label={
-                phoneHref && phoneNumber ? `Call TPPS Landscapes on ${phoneNumber}` : undefined
+                phoneHref && phoneNumber ? `Call Now: TPPS Landscapes on ${phoneNumber}` : undefined
               }
               className="flex min-h-14 items-center justify-center gap-2 rounded-md bg-green-700 px-6 py-4 text-center text-base font-bold text-white shadow-lg transition-colors hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-green-950"
             >
