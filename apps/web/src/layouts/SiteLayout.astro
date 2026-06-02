@@ -33,7 +33,7 @@ const {
   structuredData = [],
 } = Astro.props;
 const canonicalUrl = new URL(canonicalPath, Astro.site).toString();
-const socialImageUrl = new URL("/logo.png", Astro.site).toString();
+const socialImageUrl = new URL("/og-image.jpg", Astro.site).toString();
 const phoneHref = siteContent.contact.phone
   ? `tel:${siteContent.contact.phone.replace(/\s+/g, "")}`
   : undefined;
@@ -54,8 +54,12 @@ const emailHref = `mailto:${siteContent.contact.email}`;
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:image" content={socialImageUrl} />
+    <meta property="og:image:secure_url" content={socialImageUrl} />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:site_name" content={company.name} />
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={socialImageUrl} />
