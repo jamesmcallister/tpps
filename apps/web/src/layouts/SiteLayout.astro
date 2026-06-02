@@ -33,6 +33,7 @@ const {
   structuredData = [],
 } = Astro.props;
 const canonicalUrl = new URL(canonicalPath, Astro.site).toString();
+const socialImageUrl = new URL("/logo.png", Astro.site).toString();
 const phoneHref = siteContent.contact.phone
   ? `tel:${siteContent.contact.phone.replace(/\s+/g, "")}`
   : undefined;
@@ -52,10 +53,12 @@ const emailHref = `mailto:${siteContent.contact.email}`;
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={socialImageUrl} />
     <meta property="og:site_name" content={company.name} />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImageUrl} />
     <title>{title}</title>
     {
       structuredData.map((data) => (
@@ -98,7 +101,9 @@ const emailHref = `mailto:${siteContent.contact.email}`;
           <div class="hidden items-center gap-4 lg:flex">
             <a
               href={phoneHref ?? "/#contact"}
-              aria-label={phoneHref ? `Call TPPS Landscapes on ${siteContent.contact.phone}` : undefined}
+              aria-label={
+                phoneHref ? `Call Now: TPPS Landscapes on ${siteContent.contact.phone}` : undefined
+              }
               class="flex items-center gap-2 text-sm font-semibold text-stone-700 transition-colors hover:text-green-800"
             >
               <svg
@@ -157,7 +162,9 @@ const emailHref = `mailto:${siteContent.contact.email}`;
         <div class="flex flex-col gap-3 border-t border-stone-100 px-4 pt-4">
           <a
             href={phoneHref ?? "/#contact"}
-            aria-label={phoneHref ? `Call TPPS Landscapes on ${siteContent.contact.phone}` : undefined}
+            aria-label={
+              phoneHref ? `Call Now: TPPS Landscapes on ${siteContent.contact.phone}` : undefined
+            }
             class="flex w-full items-center justify-center gap-2 rounded-md border border-stone-300 py-3 font-semibold text-stone-800"
           >
             <svg
