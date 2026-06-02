@@ -11,7 +11,7 @@
     // Production deploys must also define POLICY_AUD and TEAM_DOMAIN.
     // TEAM_DOMAIN may be the base Access URL or the full /cdn-cgi/access/certs URL.
     // The worker now fails closed outside local development if Access is not configured.
-    "DOMAINS": "tppslandscapes.co.uk",
+    "DOMAINS": "tppslandscapes.com",
     "EMAIL_ADDRESSES": [],
     "TEAM_DOMAIN": "https://tpps.cloudflareaccess.com/cdn-cgi/access/certs",
     "POLICY_AUD": "e9e170c5cf327b0a85e92b34e9f11809e841e0033a10010cdde06ead3bbc6c8d",
