@@ -323,12 +323,17 @@ const breadcrumbJsonLd = {
                   {gallery.images.map((image, index) => (
                     <button
                       type="button"
-                      class="h-2.5 w-2.5 rounded-full bg-white/50 transition-colors aria-current:bg-white"
+                      class="flex h-6 w-6 items-center justify-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-stone-900"
                       data-gallery-dot
                       data-gallery-index={index}
                       aria-label={`Show photo ${index + 1}`}
                       aria-current={index === 0 ? "true" : undefined}
-                    />
+                    >
+                      <span
+                        aria-hidden="true"
+                        class="h-2.5 w-2.5 rounded-full bg-white/50 transition-colors [button[aria-current='true']_&]:bg-white"
+                      />
+                    </button>
                   ))}
                 </div>
               </div>
